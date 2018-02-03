@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import Api from './../../api';
 import ListDetail from './ListDetail';
 
 export default {
@@ -17,13 +18,13 @@ export default {
   },
   name: 'List',
   data() {
+    Api.getBirds((birds) => {
+      this.birds = birds;
+    })
+      .catch(() => {
+      });
     return {
-      birds: [
-        { rfid: 'hi' },
-        { rfid: 'hii' },
-        { rfid: 'hiii' },
-        { rfid: 'hiiii' },
-      ],
+      birds: [],
     };
   },
 };
