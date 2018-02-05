@@ -7,7 +7,7 @@
         data-toggle="collapse"
         aria-expanded="true"
         :aria-controls="bird.rfid"
-        :data-target="'#' + bird.rfid">{{bird.rfid}}</button>
+        :data-target="'#' + bird.rfid">{{bird.bandCombo}}</button>
     </h5>
     <div
       class="collapse"
