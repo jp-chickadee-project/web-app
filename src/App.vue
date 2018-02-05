@@ -15,6 +15,7 @@
           class="d-inline-block align-top"
           width="30"
           height="30"
+          style="margin-right:5px"
           alt="">JP Chickadee Project
       </a>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
