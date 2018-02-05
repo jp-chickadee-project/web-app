@@ -23,8 +23,9 @@ export default {
   },
   created() {
     Api.get('/birds/')
-      .then((birds) => {
-        this.birds = birds;
+      .then((response) => {
+        console.log(response.data);
+        this.birds = response.data;
       })
       .catch(() => {});
   },
