@@ -1,5 +1,21 @@
 <template>
-  <div>{{bird.rfid}}</div>
+<div class="card">
+  <div class="card-header">
+    <h5 class="mb-0">
+      <button
+        class="btn btn-link"
+        data-toggle="collapse"
+        aria-expanded="true"
+        :aria-controls="bird.rfid"
+        :data-target="'#' + bird.rfid">{{bird.rfid}}</button>
+    </h5>
+    <div
+      class="collapse"
+      :id="bird.rfid">
+      <div class="card-body">words</div>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>

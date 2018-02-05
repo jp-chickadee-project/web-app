@@ -1,7 +1,7 @@
 <template>
   <div>
     bird list
-    <ListDetail
+    <list-detail
       v-for="bird in birds"
       :key="bird.rfid"
       :bird="bird"/>
