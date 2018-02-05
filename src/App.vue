@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <button
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+      <router-link to="/"
         class="navbar-toggler navbar-toggler-right"
-        type="button"
         data-toggle="collapse"
         data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown"
         aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </router-link>
       <a class="navbar-brand" href="/">
         <img src="./assets/logo.jpg"
           class="d-inline-block align-top"
@@ -46,6 +45,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
