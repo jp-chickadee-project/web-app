@@ -2,12 +2,12 @@
   <div>
     <input
       placeholder="rfid"
-      v-model="targetRfid"
+      v-model="targetRfidString"
       v-on:input="filter">
     <list-detail
-      v-for="visit in selectedVisits"
-      :key="visit.rfid"
-      :visit="visit"/>
+      v-for="aVisit in aListOfSelectedVisits"
+      :key="aVisit.rfid"
+      :visit="aVisit"/>
   </div>
 </template>
 
@@ -23,27 +23,28 @@ export default {
 
   data() {
     return {
-      targetRfid: '',
-      visits: [],
-      selectedVisits: [],
+      targetRfidString: '',
+      aListOfVisits: [],
+      aListOfSelectedVisits: [],
     };
   },
 
   created() {
     Api.get('/visits/')
-      .then((visits) => {
-        this.visits = visits;
+      .then((aListOfVisits) => {
+        this.aListOfVisits = aListOfVisits;
+        this.filter();
       })
       .catch(() => {});
   },
 
   methods: {
     filter() {
-      this.selectedVisits = this.visits.filter(this.shouldIncludeVisit);
+      this.aListOfSelectedVisits = this.aListOfVisits.filter(this.shouldIncludeVisit);
     },
 
     shouldIncludeVisit(aVisit) {
-      return aVisit.rfid.includes(this.targetRfid);
+      return aVisit.rfid.includes(this.targetRfidString);
     },
   },
 };
