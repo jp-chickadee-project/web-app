@@ -18,14 +18,16 @@ export default {
   },
   name: 'List',
   data() {
-    Api.getBirds((birds) => {
-      this.birds = birds;
-    })
-      .catch(() => {
-      });
     return {
       birds: [],
     };
+  },
+  created() {
+    Api.get('/birds/')
+      .then((birds) => {
+        this.birds = birds;
+      })
+      .catch(() => {});
   },
 };
 </script>

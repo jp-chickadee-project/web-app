@@ -1,13 +1,5 @@
-import request from 'request-promise';
+import axios from 'axios';
 
-const URL = 'http://euclid.nmu.edu:8155/api/';
-
-export default class Api {
-  static getBirds() {
-    return request({
-      method: 'GET',
-      uri: `${URL}birds/`,
-      json: true,
-    });
-  }
-}
+export default axios.create({
+  baseURL: 'http://euclid.nmu.edu:8155/api',
+});
