@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">home</div>
+  <div>This website is under development</div>
 </template>
 
 <script>
