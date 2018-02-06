@@ -1,10 +1,9 @@
-<template>
-  <div>
-    <list-detail
-      v-for="bird in birds"
-      :key="bird.rfid"
-      :bird="bird"/>
-  </div>
+<template lang="pug">
+div
+  list-detail(
+    v-for="bird in birds"
+    :key="bird.rfid"
+    :bird="bird")
 </template>
 
 <script>
