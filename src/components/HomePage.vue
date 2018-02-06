@@ -1,5 +1,5 @@
-<template>
-  <div>This website is under development</div>
+<template lang="pug">
+div This website is under development
 </template>
 
 <script>
