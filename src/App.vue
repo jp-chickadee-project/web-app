@@ -11,7 +11,7 @@
         <span class="navbar-toggler-icon"></span>
       </router-link>
       <a class="navbar-brand" href="/">
-        <img src="./assets/logo.jpg"
+        <img src="./assets/logo1.png"
           class="d-inline-block align-top"
           width="30"
           height="30"
