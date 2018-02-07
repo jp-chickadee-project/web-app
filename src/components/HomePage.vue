@@ -1,5 +1,11 @@
 <template lang="pug">
-div This website is under development
+div(id="container") This website is under development.
+  br
+  br
+  br
+  br
+  p Join bird club!
+  p Meetings are Tuesday at noon in the CS lab.
 </template>
 
 <script>
@@ -26,5 +32,10 @@ li {
 }
 a {
   color: #42b983;
+}
+
+#container {
+  margin-top: 5px;
+  margin-left: 5px;
 }
 </style>
