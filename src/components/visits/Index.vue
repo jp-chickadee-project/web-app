@@ -6,7 +6,7 @@
       v-on:input="filter">
     <list-detail
       v-for="aVisit in aListOfSelectedVisits"
-      :key="aVisit.rfid"
+      :key="aVisit.rfid + aVisit.visitTimestamp"
       :visit="aVisit"/>
   </div>
 </template>
@@ -30,9 +30,10 @@ export default {
   },
 
   created() {
-    Api.get('/visits/')
-      .then((aListOfVisits) => {
-        this.aListOfVisits = aListOfVisits;
+    Api.get('/visits/?start=1492873308&end=1492879900')
+      .then((response) => {
+        this.aListOfVisits = response.data;
+        console.log(this.aListOfVisits);
         this.filter();
       })
       .catch(() => {});
