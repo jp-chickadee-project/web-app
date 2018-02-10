@@ -1,9 +1,16 @@
 <template lang="pug">
 div
-  input(
-    placeholder="rfid"
-    v-model="targetRfidString"
-    v-on:input="filter")
+  form(id="form")
+    div(class="row")
+      div(class="col")
+        label(for="filterByRfid") filter by rfid
+        input(
+          class="form-control"
+          id="filterByRfid"
+          placeholder="rfid"
+          v-model="targetRfidString"
+          v-on:input="filter")
+      div(class="col")
   list-detail(
     v-for="aVisit in aListOfSelectedVisits"
     :key="aVisit.rfid + aVisit.visitTimestamp"
@@ -50,4 +57,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#form {
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+</style>
