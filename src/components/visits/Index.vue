@@ -1,14 +1,13 @@
-<template>
-  <div>
-    <input
-      placeholder="rfid"
-      v-model="targetRfidString"
-      v-on:input="filter">
-    <list-detail
-      v-for="aVisit in aListOfSelectedVisits"
-      :key="aVisit.rfid + aVisit.visitTimestamp"
-      :visit="aVisit"/>
-  </div>
+<template lang="pug">
+div
+  input(
+    placeholder="rfid"
+    v-model="targetRfidString"
+    v-on:input="filter")
+  list-detail(
+    v-for="aVisit in aListOfSelectedVisits"
+    :key="aVisit.rfid + aVisit.visitTimestamp"
+    :visit="aVisit")
 </template>
 
 <script>
