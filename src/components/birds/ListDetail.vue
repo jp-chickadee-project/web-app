@@ -1,6 +1,6 @@
 <template lang="pug">
 div(class="card")
-  class(class="card-header")
+  div(class="card-header")
     h5(class="mb-0")
       button(
         class="btn btn-link"
