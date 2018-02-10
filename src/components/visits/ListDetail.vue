@@ -1,5 +1,9 @@
-<template>
-<div>{{visit.rfid}}</div>
+<template lang="pug">
+div(class="card")
+  div(class="card-block")
+    h4(class="card-title") rfid: {{visit.rfid}}
+    div feeder: {{visit.feederID}}
+    div time: {{new Date(visit.visitTimestamp).toGMTString()}}
 </template>
 
 <script>
