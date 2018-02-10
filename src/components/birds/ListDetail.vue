@@ -11,7 +11,10 @@ div(class="card")
     div(
       class="collapse"
       :id="bird.rfid")
-      div(class="card-body") words
+      div(class="card-body")
+        div rfid: {{bird.rfid}}
+        div species: {{bird.species}}
+        div suspected sex: {{bird.suspectedSex}}
 </template>
 
 <script>
