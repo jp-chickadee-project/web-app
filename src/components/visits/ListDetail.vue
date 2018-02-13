@@ -3,7 +3,7 @@ div(class="card")
   div(class="card-block")
     h4(class="card-title") rfid: {{visit.rfid}}
     div feeder: {{visit.feederID}}
-    div time: {{new Date(visit.visitTimestamp).toGMTString()}}
+    div time: {{new Date(visit.visitTimestamp * 1000).toGMTString()}}
 </template>
 
 <script>
