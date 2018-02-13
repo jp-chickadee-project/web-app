@@ -4,9 +4,10 @@ div(id="container") This website is under development.
   br
   br
   br
-  h1 Join bird club!
+  h1 Code for dinosaurs
   h4 Meetings are Tuesday at noon in the CS lab (JXJ 2214).
-  a(href="https://sites.google.com/view/alecrlindsay/research/jp-chickadee-project") check out the biology website for more information
+  a(href="https://sites.google.com/view/alecrlindsay/research/jp-chickadee-project") check out the biology website for more information <br>
+  a(href="http://euclid.nmu.edu/~chickadee/birds.csv") birds.csv
 </template>
 
 <script>
