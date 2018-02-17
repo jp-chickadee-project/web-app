@@ -1,9 +1,14 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
 import HomePage from '@/components/HomePage';
-import BirdList from '@/components/birds/list/BirdList';
-import BirdProfilePage from '@/components/birds/profile/Index';
+import BirdsPage from '@/components/birds/list/BirdList';
 import VisitsPage from '@/components/visits/list/Index';
+import FeedersPage from '@/components/feeders/list/Index';
+
+import BirdProfilePage from '@/components/birds/profile/Index';
+import FeederProfilePage from '@/components/feeders/profile/Index';
+
 import ErrorPageNotFound from '@/components/errors/PageNotFound';
 
 Vue.use(Router);
@@ -12,11 +17,18 @@ export default new Router({
   mode: 'history',
   routes: [
     { path: '/', component: HomePage },
-    { path: '/birds', component: BirdList },
+    { path: '/birds', component: BirdsPage },
     { path: '/visits', component: VisitsPage },
-    { path: '/birds/:rfid',
+    { path: '/feeders', component: FeedersPage },
+    {
+      path: '/birds/:rfid',
       component: BirdProfilePage,
       props: route => ({ rfid: route.params.rfid }),
+    },
+    {
+      path: '/feeders/:id',
+      component: FeederProfilePage,
+      props: route => ({ id: route.params.id }),
     },
     { path: '*', component: ErrorPageNotFound },
   ],

@@ -20,7 +20,7 @@ export default {
   components: {
     VisitList,
   },
-  name: 'VisitPage',
+  name: 'VisitsPage',
 
   data() {
     return {
