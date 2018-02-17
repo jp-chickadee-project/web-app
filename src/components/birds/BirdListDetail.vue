@@ -19,15 +19,12 @@ div(class="card")
 
 <script>
 export default {
-  name: 'list-detail',
+  name: 'bird-list-detail',
   props: {
     bird: {
       type: Object,
       required: true,
     },
-  },
-  data() {
-    return {};
   },
 };
 </script>
