@@ -29,6 +29,9 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/visits">Visits</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/feeders">Feeders</router-link>
+          </li>
         </ul>
       </div>
     </nav>
