@@ -1,25 +1,41 @@
 <template lang="pug">
-div reee
+div
+  bird-profile-detail(:bird="bird")
+  visit-list(:visits="visits")
 </template>
 
 <script>
 import Api from '@/api';
+import VisitList from '@/components/visits/list/VisitList';
+
+import BirdProfileDetail from './BirdProfileDetail';
 
 export default {
   props: ['rfid'],
-  components: {},
+  components: {
+    BirdProfileDetail,
+    VisitList,
+  },
   name: 'bird-profile',
   data() {
     return {
-      birds: [],
+      bird: {},
+      visits: [],
     };
   },
   created() {
-    Api.get('/birds/')
+    const URL = `/birds/${this.rfid}?start=1492863308&end=1492879900`;
+    Api.get(URL)
       .then((response) => {
         console.log(response.data);
-        console.log(this.rfid);
-        this.birds = response.data;
+        this.visits = response.data;
+      })
+      .catch(() => {});
+
+    Api.get(`/birds/${this.rfid}`)
+      .then((response) => {
+        console.log(response.data);
+        this.bird = response.data;
       })
       .catch(() => {});
   },
