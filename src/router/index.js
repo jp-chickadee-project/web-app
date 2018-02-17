@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import HomePage from '@/components/HomePage';
 import BirdList from '@/components/birds/list/BirdList';
-import BirdProfile from '@/components/birds/Profile';
+import BirdProfilePage from '@/components/birds/profile/Index';
 import VisitsPage from '@/components/visits/list/Index';
 import ErrorPageNotFound from '@/components/errors/PageNotFound';
 
@@ -15,7 +15,7 @@ export default new Router({
     { path: '/birds', component: BirdList },
     { path: '/visits', component: VisitsPage },
     { path: '/birds/:rfid',
-      component: BirdProfile,
+      component: BirdProfilePage,
       props: route => ({ rfid: route.params.rfid }),
     },
     { path: '*', component: ErrorPageNotFound },
