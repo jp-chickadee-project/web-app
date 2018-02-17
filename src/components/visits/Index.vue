@@ -11,10 +11,7 @@ div
           v-model="targetRfidString"
           v-on:input="filter")
       div(class="col")
-  list-detail(
-    v-for="aVisit in aListOfSelectedVisits"
-    :key="aVisit.rfid + aVisit.visitTimestamp"
-    :visit="aVisit")
+  visit-list(:visits="aListOfSelectedVisits")
 </template>
 
 <script>
@@ -25,7 +22,7 @@ export default {
   components: {
     ListDetail,
   },
-  name: 'visits-table',
+  name: 'visit-page',
 
   data() {
     return {
