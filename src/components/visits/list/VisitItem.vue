@@ -1,9 +1,10 @@
 <template lang="pug">
 div(class="card")
   div(class="card-block")
-    h4(class="card-title")
-      a(:href="'/birds/' + visit.rfid") {{visit.bandCombo}}
-    div feeder: {{visit.feederID}}
+    div
+      a(:href="'/birds/' + visit.rfid") bird: {{visit.bandCombo}}
+    div
+      a(:href="'/feeders/' + visit.feederID") feeder: {{visit.feederID}}
     div time: {{new Date(visit.visitTimestamp * 1000).toGMTString()}}
 </template>
 
