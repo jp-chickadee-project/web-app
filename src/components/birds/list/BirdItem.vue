@@ -20,7 +20,7 @@ div(class="card")
 
 <script>
 export default {
-  name: 'bird-list-detail',
+  name: 'BirdItem',
   props: {
     bird: {
       type: Object,

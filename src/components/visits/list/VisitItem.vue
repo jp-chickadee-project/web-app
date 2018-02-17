@@ -9,7 +9,7 @@ div(class="card")
 
 <script>
 export default {
-  name: 'visit-list-detail',
+  name: 'VisitItem',
   props: {
     visit: {
       type: Object,

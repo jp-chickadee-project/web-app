@@ -1,27 +1,27 @@
 <template lang="pug">
 div(v-if="isLoading === true")
-  visit-list-detail-loading
+  VisitItemLoading
 div(v-else-if="visits.length === 0")
-  visit-list-detail-null
+  VisitItemNone
 div(v-else)
-  visit-list-detail(
+  VisitItem(
     v-for="visit in visits"
     :key="visit.rfid + visit.visitTimestamp"
     :visit="visit")
 </template>
 
 <script>
-import VisitListDetail from './VisitListDetail';
-import VisitListDetailNull from './VisitListDetailNull';
-import VisitListDetailLoading from './VisitListDetailLoading';
+import VisitItem from './VisitItem';
+import VisitItemNone from './VisitItemNone';
+import VisitItemLoading from './VisitItemLoading';
 
 export default {
   components: {
-    VisitListDetail,
-    VisitListDetailNull,
-    VisitListDetailLoading,
+    VisitItem,
+    VisitItemNone,
+    VisitItemLoading,
   },
-  name: 'visit-list',
+  name: 'VisitList',
   props: {
     visits: {
       type: Array,

@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  bird-list-detail(
+  BirdItem(
     v-for="bird in birds"
     :key="bird.rfid"
     :bird="bird")
@@ -8,13 +8,13 @@ div
 
 <script>
 import Api from '@/api';
-import BirdListDetail from './BirdListDetail';
+import BirdItem from './BirdItem';
 
 export default {
   components: {
-    BirdListDetail,
+    BirdItem,
   },
-  name: 'bird-list',
+  name: 'BirdList',
   data() {
     return {
       birds: [],

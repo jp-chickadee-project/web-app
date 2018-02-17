@@ -9,7 +9,7 @@ div
         placeholder="rfid"
         v-model="targetRfidString"
         v-on:input="filter")
-  visit-list(:visits="selectedVisits" :isLoading="isLoading")
+  VisitList(:visits="selectedVisits" :isLoading="isLoading")
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
   components: {
     VisitList,
   },
-  name: 'visit-page',
+  name: 'VisitPage',
 
   data() {
     return {

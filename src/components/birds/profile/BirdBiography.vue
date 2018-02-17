@@ -8,7 +8,7 @@ div
 
 <script>
 export default {
-  name: 'bird-profile-detail',
+  name: 'BirdBiography',
   props: {
     bird: {
       type: Object,
