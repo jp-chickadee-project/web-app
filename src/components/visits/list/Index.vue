@@ -9,7 +9,7 @@ div
         placeholder="rfid"
         v-model="targetRfidString"
         v-on:input="filter")
-  visit-list(:visits="selectedVisits")
+  visit-list(:visits="selectedVisits" :isLoading="isLoading")
 </template>
 
 <script>
@@ -26,13 +26,14 @@ export default {
     return {
       targetRfidString: '',
       selectedVisits: [],
-      visits: [],
     };
   },
 
   created() {
+    this.isLoading = true;
     Api.get('/visits/?start=1492873308&end=1492879900')
       .then((response) => {
+        this.isLoading = false;
         this.visits = response.data;
         console.log(this.visits);
         this.filter();
