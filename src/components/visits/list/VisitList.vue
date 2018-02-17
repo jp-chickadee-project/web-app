@@ -1,37 +1,26 @@
 <template lang="pug">
 div
-  list-detail(
+  visit-list-detail(
     v-for="aVisit in visits"
     :key="aVisit.rfid + aVisit.visitTimestamp"
     :visit="aVisit")
 </template>
 
 <script>
-import Api from './../../api';
-import ListDetail from './ListDetail';
+import VisitListDetail from './VisitListDetail';
 
 export default {
   components: {
-    ListDetail,
+    VisitListDetail,
   },
   name: 'visit-list',
   props: {
     visits: {
       type: Array,
-      required: true
-    }
-  },
-
-  created() {
-
+      required: true,
+    },
   },
 };
 </script>
 
-<style scoped>
-#form {
-  margin-left: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-</style>
+<style scoped></style>

@@ -8,15 +8,12 @@ div(class="card")
 
 <script>
 export default {
-  name: 'list-detail',
+  name: 'visit-list-detail',
   props: {
     visit: {
       type: Object,
       required: true,
     },
-  },
-  data() {
-    return {};
   },
 };
 </script>
