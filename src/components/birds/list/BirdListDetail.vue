@@ -8,6 +8,7 @@ div(class="card")
         aria-expanded="true"
         :aria-controls="bird.rfid"
         :data-target="'#' + bird.rfid") {{bird.bandCombo}}
+      a(:href="'birds/' + bird.rfid") view profile
     div(
       class="collapse"
       :id="bird.rfid")
