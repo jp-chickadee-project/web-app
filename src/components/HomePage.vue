@@ -1,9 +1,11 @@
 <template lang="pug">
-div(id="container") This website is under development.
+div(id="container")
+  VisitsGraph(id="x" :visits="[]")
   br
   br
   br
   br
+  span This website is under development.
   h1 Code for dinosaurs
   h4 Meetings are Tuesday at noon in the CS lab (JXJ 2214).
   a(href="https://sites.google.com/view/alecrlindsay/research/jp-chickadee-project") check out the biology website for more information <br>
@@ -11,10 +13,24 @@ div(id="container") This website is under development.
 </template>
 
 <script>
+import Api from '@/api';
+import VisitsGraph from '@/components/visits/graph/Index';
+
 export default {
   name: 'HelloWorld',
+  components: {
+    VisitsGraph,
+  },
   data() {
     return {};
+  },
+  created() {
+    Api.get('/visits/?start=1492873308&end=1492879900')
+      .then((response) => {
+        this.visits = response.data;
+        console.log(this.visits);
+      })
+      .catch(() => {});
   },
 };
 </script>
@@ -39,5 +55,9 @@ a {
 #container {
   margin-top: 5px;
   margin-left: 5px;
+}
+
+#x {
+  width: 500px;
 }
 </style>
