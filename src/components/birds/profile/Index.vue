@@ -23,7 +23,7 @@ export default {
     };
   },
   created() {
-    const URL = `/birds/${this.rfid}?start=1492863308&end=1492879900`;
+    const URL = `/visits?rfid=${this.rfid}&start=1492863308&end=1492879900`;
     this.isLoadingVisits = true;
     Api.get(URL)
       .then((response) => {
