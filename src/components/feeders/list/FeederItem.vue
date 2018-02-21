@@ -2,7 +2,7 @@
 div(class="card")
   div(class="card-block")
     h4(class="card-title")
-      a(:href="'/feeders/' + feeder.id") {{feeder.id}}
+      a(:href="'/feeders/' + feeder.id") {{feeder.fullName}}
 </template>
 
 <script>
