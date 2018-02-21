@@ -28,8 +28,13 @@ export default {
       data: {
         labels,
         datasets: [{
-          label: '# of Votes',
+          label: 'CLIF',
           data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)'
+        }, {
+          label: 'REE',
+          data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
+          backgroundColor: 'rgba(255, 159, 64, 0.2)'
         }],
       },
       options: {
