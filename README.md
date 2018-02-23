@@ -1,30 +1,24 @@
-# chickadee-frontend
+## Installation
 
-> A Vue.js project
+You'll need [Git](https://git-scm.com/) and a recent version of [Node.JS](https://nodejs.org/en/) (`v8.0.0+` allows for `=>` (arrow functions), `async`, and `await`)
 
-## Build Setup
+1. Navigate to where you'd like to save the project
+2. `git clone` the repo
+3. Navigate to inside the project
+4. Run `npm install` this downloads all the project's dependencies and devDependencies in package.json
 
-``` bash
-# install dependencies
-npm install
+### Running for Development
+1. Be on your local machine.
+2. Use command prompt.
+3. Navigate to the directory which contains the package.json file.
+4. `npm run dev` executes the devstart script in package.json This montors for any changes in your application and automatically restarts the server.
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Running for Production
+The frontend is ran with [tmux](https://en.wikipedia.org/wiki/Tmux). This allows for the site to remain up without an ssh terminal open. 
+1. Login to Euclid with the special bird account. (Ask someone for the credentials.)
+2. End the current tmux session if needed with `tmux kill-session -t 0`
+3. start another session `tmux`
+4. npm run start
+5. Close the terminal with the "x" close in the corner.
+6. Confirm
+7. Verifiy that the website is still up.
