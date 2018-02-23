@@ -31,7 +31,7 @@ export default {
 
   created() {
     this.isLoading = true;
-    Api.get('/visits/?start=1492873308&end=1492879900')
+    Api.get('/visits/latest?limit=30')
       .then((response) => {
         this.isLoading = false;
         this.visits = response.data;
