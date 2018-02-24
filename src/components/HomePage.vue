@@ -1,6 +1,6 @@
 <template lang="pug">
 div(id="container")
-  VisitsGraph(id="x" :visits="[]")
+  VisitsGraph(id="x" :visits="visits")
   br
   br
   br
@@ -22,13 +22,16 @@ export default {
     VisitsGraph,
   },
   data() {
-    return {};
+    return {
+      visits: this.visits,
+    };
   },
   created() {
-    Api.get('/visits/?start=1492873308&end=1492879900')
+    this.visits = [];
+    Api.get('/visits/latest?limit=1000')
       .then((response) => {
         this.visits = response.data;
-        console.log(this.visits);
+        console.log(`visits loaded`);
       })
       .catch(() => {});
   },
@@ -58,6 +61,6 @@ a {
 }
 
 #x {
-  width: 500px;
+  width: 80%;
 }
 </style>
