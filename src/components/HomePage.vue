@@ -28,7 +28,7 @@ export default {
   },
   created() {
     this.visits = [];
-    Api.get('/visits/latest?limit=1000')
+    Api.get('/visits/latest?limit=1000000&rfid=0300034C3E')
       .then((response) => {
         this.visits = response.data;
         console.log(`visits loaded`);
@@ -61,6 +61,6 @@ a {
 }
 
 #x {
-  width: 80%;
+  width: 50%;
 }
 </style>

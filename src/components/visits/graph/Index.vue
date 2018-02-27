@@ -43,8 +43,9 @@ export default {
 
   methods: {
     makeLabels() {
-      const LIMIT = moment('2000', 'hhmm');
-      let time = moment('1000', 'hhmm');
+      const LIMIT = moment('2100', 'hhmm');
+      let time = moment('0600', 'hhmm');
+      console.log(time);
       let times = [];
       while (time < LIMIT) {
         times.push(time.format('h:mma'));
@@ -59,12 +60,13 @@ export default {
         let label = labels[i];
         occurrences[label] = 0;
       }
+      console.log('empty occurrences');
       console.log(this.occurrences);
       return occurrences;
     },
 
-    makeDatesets() {
-      let datasets = {};
+    makeDatesets(labels) {
+      let datasets = this.setupDatasets(labels);
       for (let i = 0; i < this.visits.length; i++) {
         let visit = this.visits[i];
         let timestamp = visit.visitTimestamp;
@@ -78,7 +80,7 @@ export default {
       console.log(datasets);
 
       return [{
-        label: 'visits',
+        label: 'every recorded visit for #R/ay',
         data: Object.values(datasets),
         backgroundColor: 'rgba(255, 99, 132, 0.2)'
       }];
