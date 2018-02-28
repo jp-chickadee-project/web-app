@@ -80,7 +80,7 @@ export default {
       console.log(datasets);
 
       return [{
-        label: 'every recorded visit for #R/ay',
+        label: `All ${this.visits.length} visits for Ray (#R/ay)`,
         data: Object.values(datasets),
         backgroundColor: 'rgba(255, 99, 132, 0.2)'
       }];
