@@ -82,7 +82,7 @@ export default {
       return [{
         label: `All ${this.visits.length} visits for Ray (#R/ay)`,
         data: Object.values(datasets),
-        backgroundColor: 'rgba(255, 99, 132, 0.2)'
+        backgroundColor: 'rgb(66, 134, 244)'
       }];
     },
 
