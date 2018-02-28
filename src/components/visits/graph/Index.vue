@@ -24,6 +24,13 @@ export default {
       this.visits = v;
       const chart = new Chart(this.ctx, {
         type: 'bar',
+        options: {
+          title: {
+            display: true,
+            position: 'top',
+            text: `All ${this.visits.length} visits for Ray (#R/ay)`
+          }
+        },
         data: {
           labels: this.labels,
           datasets: this.makeDatesets(this.labels),
@@ -80,7 +87,7 @@ export default {
       console.log(datasets);
 
       return [{
-        label: `All ${this.visits.length} visits for Ray (#R/ay)`,
+        label: 'visits',
         data: Object.values(datasets),
         backgroundColor: 'rgb(66, 134, 244)'
       }];
