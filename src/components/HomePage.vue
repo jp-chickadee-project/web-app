@@ -1,9 +1,8 @@
 <template lang="pug">
 div(id="container")
+  FeedersMap
+  br
   VisitsGraph(id="x" :visits="visits")
-  br
-  br
-  br
   br
   span This website is under development.
   h1 Code for dinosaurs
@@ -15,11 +14,13 @@ div(id="container")
 <script>
 import Api from '@/api';
 import VisitsGraph from '@/components/visits/graph/Index';
+import FeedersMap from '@/components/feeders/map/Index';
 
 export default {
   name: 'HelloWorld',
   components: {
     VisitsGraph,
+    FeedersMap,
   },
   data() {
     return {
