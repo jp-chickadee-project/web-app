@@ -4,9 +4,12 @@ div(id="idmap")
 
 <script>
 import Api from '@/api';
+import VisitProfile from '@/components/visits/profile/Index.vue';
 
 export default {
-  components: {},
+  components: {
+    VisitProfile,
+  },
   name: 'FeedersMap',
 
   data() {
@@ -32,7 +35,7 @@ export default {
           .then((response) => {
             let visit = response.data;
             L.marker([feeder.latitude, feeder.longitude]).addTo(map)
-            .bindPopup(`feeder: ${feeder.fullName} <br> last bird: ${visit.bandCombo}`)
+            .bindPopup(`<VisitProfile></VisitProfile>`)
             .openPopup();
           })
         }
