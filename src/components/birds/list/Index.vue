@@ -11,22 +11,20 @@ import Api from '@/api';
 import BirdItem from './BirdItem';
 
 export default {
+  name: 'BirdList',
   components: {
     BirdItem,
   },
-  name: 'BirdList',
+  props: {
+    birds: {
+      type: Array,
+      required: true,
+    }
+  },
   data() {
-    return {
-      birds: [],
-    };
+    return {};
   },
-  created() {
-    Api.get('/birds')
-      .then((birds) => {
-        this.birds = birds;
-      })
-      .catch(() => {});
-  },
+  created() {},
 };
 </script>
 

@@ -1,13 +1,17 @@
 <template lang='pug'>
-div test
+div
+  BirdsList(:birds='birds')
 </template>
 
 <script>
 import Api from '@/api';
+import BirdsList from './list';
 
 export default {
-  components: {},
   name: 'BirdsPage',
+  components: {
+    BirdsList,
+  },
   data() {
     return {
       birds: [],
