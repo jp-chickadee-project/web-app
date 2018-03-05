@@ -17,7 +17,7 @@ export default {
     },
   },
   watch: {
-    visits: (v) => {
+    visits: function(v) {
       console.log(`watch ${v.length}`);
       this.visits = v;
       const chart = new Chart(this.ctx, {
