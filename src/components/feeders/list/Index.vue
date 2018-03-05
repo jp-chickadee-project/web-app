@@ -21,8 +21,8 @@ export default {
 
   created() {
     Api.get('/feeders')
-      .then((response) => {
-        this.feeders = response.data;
+      .then((feeders) => {
+        this.feeders = feeders;
         console.log(this.feeders);
       })
       .catch(() => {});

@@ -22,9 +22,9 @@ export default {
   },
   created() {
     Api.get('/birds')
-      .then((response) => {
-        console.log(response.data);
-        this.birds = response.data;
+      .then((birds) => {
+        console.log(birds);
+        this.birds = birds;
       })
       .catch(() => {});
   },

@@ -32,9 +32,9 @@ export default {
   created() {
     this.isLoading = true;
     Api.get('/visits/latest?limit=30')
-      .then((response) => {
+      .then((visits) => {
         this.isLoading = false;
-        this.visits = response.data;
+        this.visits = visits;
         console.log(this.visits);
         this.filter();
       })

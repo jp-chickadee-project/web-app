@@ -26,16 +26,16 @@ export default {
     const URL = `/visits/latest?limit=50&feederID=${this.id}`;
     this.isLoadingVisits = true;
     Api.get(URL)
-      .then((response) => {
+      .then((visits) => {
         this.isLoadingVisits = false;
-        this.visits = response.data;
+        this.visits = visits;
         console.log(this.visits);
       })
       .catch(() => {});
 
     Api.get(`/feeders/${this.id}`)
-      .then((response) => {
-        this.feeder = response.data;
+      .then((feeder) => {
+        this.feeder = feeder;
         console.log(this.feeder);
       })
       .catch(() => {});

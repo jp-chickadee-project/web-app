@@ -26,14 +26,12 @@ export default {
     }).addTo(map);
 
     Api.get('/feeders')
-      .then((response) => {
-        let feeders = response.data;
+      .then((feeders) => {
         console.log(feeders);
         for (let i = 0; i < feeders.length; i++) {
           let feeder = feeders[i];
           Api.get(`/visits/latest?feederID=${feeder.id}&limit=1`)
-          .then((response) => {
-            let visit = response.data;
+          .then((visit) => {
             L.marker([feeder.latitude, feeder.longitude]).addTo(map)
             .bindPopup(`<VisitProfile></VisitProfile>`)
             .openPopup();

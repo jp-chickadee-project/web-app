@@ -26,17 +26,17 @@ export default {
     const URL = `/visits/latest?limit=50&rfid=${this.rfid}`;
     this.isLoadingVisits = true;
     Api.get(URL)
-      .then((response) => {
+      .then((visits) => {
         this.isLoadingVisits = false;
-        console.log(response.data);
-        this.visits = response.data;
+        console.log(visits);
+        this.visits = visits;
       })
       .catch(() => {});
 
     Api.get(`/birds/${this.rfid}`)
-      .then((response) => {
-        console.log(response.data);
-        this.bird = response.data;
+      .then((bird) => {
+        console.log(bird);
+        this.bird = bird;
       })
       .catch(() => {});
   },

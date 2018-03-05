@@ -30,8 +30,8 @@ export default {
   created() {
     this.visits = [];
     Api.get('/visits/latest?limit=1000000&rfid=0300034C3E')
-      .then((response) => {
-        this.visits = response.data;
+      .then((visits) => {
+        this.visits = visits;
         console.log(`visits loaded`);
       })
       .catch(() => {});
