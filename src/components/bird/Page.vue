@@ -1,7 +1,7 @@
-<template lang="pug">
+<template lang='pug'>
 div
-  BirdBiography(:bird="bird")
-  VisitList(:visits="visits" :isLoading="isLoadingVisits")
+  BirdBiography(:bird='bird')
+  VisitList(:visits='visits' :isLoading='isLoadingVisits')
 </template>
 
 <script>
