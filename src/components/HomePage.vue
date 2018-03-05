@@ -32,7 +32,7 @@ export default {
     Api.get('/visits/latest?limit=1000000&rfid=0300034C3E')
       .then((visits) => {
         this.visits = visits;
-        console.log(`visits loaded`);
+        console.log('visits loaded');
       })
       .catch(() => {});
   },

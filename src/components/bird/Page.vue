@@ -5,8 +5,9 @@ div
 
 <script>
 import Api from '@/api';
-import BirdProfile from './Profile';
 import DefaultBird from '@/defaults/Bird';
+
+import BirdProfile from './Profile';
 
 export default {
   props: ['rfid'],
@@ -21,9 +22,13 @@ export default {
     };
   },
   created() {
-    const URL = `/visits/latest?limit=50&rfid=${this.rfid}`;
     this.isLoadingVisits = true;
-    Api.get(URL)
+    Api.get('/visits/latest', {
+      params: {
+        rfid: this.rfid,
+        limit: 50,
+      },
+    })
       .then((visits) => {
         this.isLoadingVisits = false;
         this.visits = visits;

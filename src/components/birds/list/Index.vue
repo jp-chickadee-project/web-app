@@ -9,7 +9,6 @@ div(v-else)
 </template>
 
 <script>
-import Api from '@/api';
 import BirdItem from './Item';
 
 export default {
@@ -26,7 +25,7 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    }
+    },
   },
   data() {
     return {};

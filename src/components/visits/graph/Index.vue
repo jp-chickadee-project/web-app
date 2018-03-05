@@ -6,11 +6,9 @@ div
 <script>
 import Chart from 'chart.js';
 import moment from 'moment';
-import * as _ from 'lodash';
 
 export default {
-  components: {
-  },
+  components: {},
   name: 'VisitsGraph',
   props: {
     visits: {
@@ -19,7 +17,7 @@ export default {
     },
   },
   watch: {
-    visits: function(v) {
+    visits: (v) => {
       console.log(`watch ${v.length}`);
       this.visits = v;
       const chart = new Chart(this.ctx, {
@@ -28,15 +26,15 @@ export default {
           title: {
             display: true,
             position: 'top',
-            text: `All ${this.visits.length} visits for Ray (#R/ay)`
-          }
+            text: `All ${this.visits.length} visits for Ray (#R/ay)`,
+          },
         },
         data: {
           labels: this.labels,
           datasets: this.makeDatesets(this.labels),
         },
       });
-    }
+    },
   },
   data() {
     console.log('data');
@@ -51,9 +49,9 @@ export default {
   methods: {
     makeLabels() {
       const LIMIT = moment('2100', 'hhmm');
-      let time = moment('0600', 'hhmm');
+      const time = moment('0600', 'hhmm');
       console.log(time);
-      let times = [];
+      const times = [];
       while (time < LIMIT) {
         times.push(time.format('h:mma'));
         time.add(1, 'm');
@@ -62,9 +60,9 @@ export default {
     },
 
     setupDatasets(labels) {
-      let occurrences = {};
+      const occurrences = {};
       for (let i = 0; i < labels.length; i++) {
-        let label = labels[i];
+        const label = labels[i];
         occurrences[label] = 0;
       }
       console.log('empty occurrences');
@@ -73,11 +71,11 @@ export default {
     },
 
     makeDatesets(labels) {
-      let datasets = this.setupDatasets(labels);
+      const datasets = this.setupDatasets(labels);
       for (let i = 0; i < this.visits.length; i++) {
-        let visit = this.visits[i];
-        let timestamp = visit.visitTimestamp;
-        let time = moment.unix(timestamp).format('h:mma');
+        const visit = this.visits[i];
+        const timestamp = visit.visitTimestamp;
+        const time = moment.unix(timestamp).format('h:mma');
         if (datasets[time] === undefined) {
           datasets[time] = 0;
         }
@@ -89,18 +87,18 @@ export default {
       return [{
         label: 'visits',
         data: Object.values(datasets),
-        backgroundColor: 'rgb(66, 134, 244)'
+        backgroundColor: 'rgb(66, 134, 244)',
       }];
     },
 
     zero(count) {
       const DEFAULT_VALUE = 0;
-      let list = [];
+      const list = [];
       for (let i = 0; i < count; i++) {
         list.push(DEFAULT_VALUE);
       }
       return list;
-    }
+    },
   },
 };
 </script>
