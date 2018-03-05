@@ -35,7 +35,6 @@ export default {
       .then((visits) => {
         this.isLoading = false;
         this.visits = visits;
-        console.log(this.visits);
         this.filter();
       })
       .catch(() => {});

@@ -29,14 +29,12 @@ export default {
       .then((visits) => {
         this.isLoadingVisits = false;
         this.visits = visits;
-        console.log(this.visits);
       })
       .catch(() => {});
 
     Api.get(`/feeders/${this.id}`)
       .then((feeder) => {
         this.feeder = feeder;
-        console.log(this.feeder);
       })
       .catch(() => {});
   },

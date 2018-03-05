@@ -28,14 +28,12 @@ export default {
     Api.get(URL)
       .then((visits) => {
         this.isLoadingVisits = false;
-        console.log(visits);
         this.visits = visits;
       })
       .catch(() => {});
 
     Api.get(`/birds/${this.rfid}`)
       .then((bird) => {
-        console.log(bird);
         this.bird = bird;
       })
       .catch(() => {});

@@ -23,7 +23,6 @@ export default {
     Api.get('/feeders')
       .then((feeders) => {
         this.feeders = feeders;
-        console.log(this.feeders);
       })
       .catch(() => {});
   },

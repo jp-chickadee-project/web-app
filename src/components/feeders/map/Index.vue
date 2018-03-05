@@ -27,7 +27,6 @@ export default {
 
     Api.get('/feeders')
       .then((feeders) => {
-        console.log(feeders);
         for (let i = 0; i < feeders.length; i++) {
           let feeder = feeders[i];
           Api.get(`/visits/latest?feederID=${feeder.id}&limit=1`)

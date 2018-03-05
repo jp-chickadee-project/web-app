@@ -16,7 +16,6 @@ export default {
   created() {
     Api.get('/birds')
       .then((birds) => {
-        console.log(birds);
         this.birds = birds;
       })
       .catch(() => {});
