@@ -1,18 +1,18 @@
-<template lang="pug">
-div(class="card")
-  div(class="card-header")
-    h5(class="mb-0")
+<template lang='pug'>
+div(class='card')
+  div(class='card-header')
+    h5(class='mb-0')
       button(
-        class="btn btn-link"
-        data-toggle="collapse"
-        aria-expanded="true"
-        :aria-controls="bird.rfid"
-        :data-target="'#' + bird.rfid") {{bird.bandCombo}}
-      a(:href="'birds/' + bird.rfid") view profile
+        class='btn btn-link'
+        data-toggle='collapse'
+        aria-expanded='true'
+        :aria-controls='bird.rfid'
+        :data-target='"#" + bird.rfid') {{bird.bandCombo}}
+      a(:href='"birds/" + bird.rfid') view profile
     div(
-      class="collapse"
-      :id="bird.rfid")
-      div(class="card-body")
+      class='collapse'
+      :id='bird.rfid')
+      div(class='card-body')
         div rfid: {{bird.rfid}}
         div species: {{bird.species}}
         div suspected sex: {{bird.suspectedSex}}
