@@ -6,12 +6,12 @@ import HomePage from '@/components/HomePage';
 import VisitsPage from '@/components/visits/list/Index';
 import FeedersPage from '@/components/feeders/list/Index';
 
-import BirdProfilePage from '@/components/birds/profile/Index';
 import FeederProfilePage from '@/components/feeders/profile/Index';
 
 import ErrorPageNotFound from '@/components/errors/PageNotFound';
 
 import BirdsPage from '@/components/birds/Page';
+import BirdPage from '@/components/bird/Page';
 
 Vue.use(Router);
 
@@ -24,7 +24,7 @@ export default new Router({
     { path: '/feeders', component: FeedersPage },
     {
       path: '/birds/:rfid',
-      component: BirdProfilePage,
+      component: BirdPage,
       props: route => ({ rfid: route.params.rfid }),
     },
     {
