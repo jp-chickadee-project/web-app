@@ -2,13 +2,10 @@
 div(id="container")
   FeedersMap
   br
-  VisitsGraph(id="x" :visits="visits")
-  br
   span This website is under development.
   h1 Code for dinosaurs
   h4 Meetings are Tuesday at noon in the CS lab (JXJ 2214).
   a(href="https://sites.google.com/view/alecrlindsay/research/jp-chickadee-project") check out the biology website for more information <br>
-  a(href="http://euclid.nmu.edu/~chickadee/birds.csv") birds.csv
 </template>
 
 <script>
@@ -23,18 +20,9 @@ export default {
     FeedersMap,
   },
   data() {
-    return {
-      visits: this.visits,
-    };
+    return {};
   },
   created() {
-    this.visits = [];
-    Api.get('/visits/latest?limit=1000000&rfid=0300034C3E')
-      .then((visits) => {
-        this.visits = visits;
-        console.log('visits loaded');
-      })
-      .catch(() => {});
   },
 };
 </script>
