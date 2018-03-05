@@ -8,6 +8,7 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     console.log(`url: ${config.url}`);
+    console.log(`params: ${JSON.stringify(config.params, null, 2)}`);
     return config;
   },
   config => config,
