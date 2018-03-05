@@ -1,24 +1,22 @@
 <template lang='pug'>
 div
-  BirdBiography(:bird='bird')
-  VisitList(:visits='visits' :isLoading='isLoadingVisits')
+  BirdProfile(:bird='bird')
 </template>
 
 <script>
 import Api from '@/api';
-import VisitList from '@/components/visits/list/VisitList';
-import BirdBiography from './BirdBiography';
+import BirdProfile from './Profile';
+import DefaultBird from '@/defaults/Bird';
 
 export default {
   props: ['rfid'],
   components: {
-    BirdBiography,
-    VisitList,
+    BirdProfile,
   },
-  name: 'BirdProfile',
+  name: 'BirdPage',
   data() {
     return {
-      bird: {},
+      bird: DefaultBird,
       visits: [],
     };
   },
