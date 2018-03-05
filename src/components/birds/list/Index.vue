@@ -1,14 +1,16 @@
 <template lang="pug">
-div
+div(v-if='isLoading === true')
+  div loading
+div(v-else)
   BirdItem(
-    v-for="bird in birds"
-    :key="bird.rfid"
-    :bird="bird")
+    v-for='bird in birds'
+    :key='bird.rfid'
+    :bird='bird')
 </template>
 
 <script>
 import Api from '@/api';
-import BirdItem from './BirdItem';
+import BirdItem from './Item';
 
 export default {
   name: 'BirdList',
@@ -19,6 +21,10 @@ export default {
     birds: {
       type: Array,
       required: true,
+    },
+    isLoading: {
+      type: Boolean,
+      required: false,
     }
   },
   data() {

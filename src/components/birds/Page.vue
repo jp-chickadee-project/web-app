@@ -1,6 +1,6 @@
 <template lang='pug'>
 div
-  BirdsList(:birds='birds')
+  BirdsList(:birds='birds' :isLoading='isLoadingBirds')
 </template>
 
 <script>
@@ -18,9 +18,11 @@ export default {
     };
   },
   created() {
+    this.isLoadingBirds = true;
     Api.get('/birds')
       .then((birds) => {
         this.birds = birds;
+        this.isLoadingBirds = false;
       })
       .catch(() => {});
   },
