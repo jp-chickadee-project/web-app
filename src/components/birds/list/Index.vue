@@ -25,6 +25,7 @@ export default {
     isLoading: {
       type: Boolean,
       required: false,
+      default: false,
     }
   },
   data() {
