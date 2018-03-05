@@ -19,7 +19,12 @@ export default {
   created() {
   },
   mounted() {
-    const map = L.map('idmap').setView([46.5534264, -87.4287414], 16);
+    const ZOOM = 15.5;
+    const map = L.map('idmap', {
+      minZoom: ZOOM,
+      maxZoom: ZOOM
+    });
+    map.removeControl(map.zoomControl);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
@@ -29,13 +34,17 @@ export default {
       .then((feeders) => {
         for (let i = 0; i < feeders.length; i++) {
           const feeder = feeders[i];
-          Api.get(`/visits/latest?feederID=${feeder.id}&limit=1`)
-            .then((visit) => {
-              L.marker([feeder.latitude, feeder.longitude]).addTo(map)
-                .bindPopup('<VisitProfile></VisitProfile>')
-                .openPopup();
-            });
+          if (feeder.id !== "TEST") {
+            Api.get(`/visits/latest?feederID=${feeder.id}&limit=1`)
+              .then((visit) => {
+                L.marker([feeder.latitude, feeder.longitude]).addTo(map)
+                  .bindPopup('<VisitProfile></VisitProfile>')
+                  .openPopup();
+              })
+              .catch(() => {});
+          }
         }
+        map.setView([46.554064, -87.428646], ZOOM);
       });
   },
 };
