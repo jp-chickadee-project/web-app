@@ -33,6 +33,8 @@ export default {
     });
     map.removeControl(map.zoomControl);
     map.dragging.disable();
+    map.scrollWheelZoom.disable();
+    map.touchZoom.disable();
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
