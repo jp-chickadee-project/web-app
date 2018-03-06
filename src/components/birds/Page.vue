@@ -5,7 +5,7 @@ div
 
 <script>
 import Api from '@/api';
-import BirdsList from './list';
+import BirdsList from './list/Index';
 
 export default {
   name: 'BirdsPage',
