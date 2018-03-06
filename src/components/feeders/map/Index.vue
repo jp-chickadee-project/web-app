@@ -46,7 +46,7 @@ export default {
             Api.get(`/visits/latest?feederID=${feeder.id}&limit=1`)
               .then((visit) => {
                 L.marker([feeder.latitude, feeder.longitude]).addTo(map)
-                  .bindPopup('<VisitProfile></VisitProfile>')
+                  .bindPopup(`feeder: ${feeder.fullName}<br> last visit: ${visit.bandCombo}`)
                   .openPopup();
               })
               .catch(() => {});
