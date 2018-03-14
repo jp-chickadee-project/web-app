@@ -13,12 +13,15 @@ import ErrorPageNotFound from '@/components/errors/PageNotFound';
 import BirdsPage from '@/components/birds/Page';
 import BirdPage from '@/components/bird/Page';
 
+import VisitCount from '@/components/visits/count/Index';
+
 Vue.use(Router);
 
 export default new Router({
   mode: 'history',
   routes: [
     { path: '/', component: HomePage },
+    { path: '/slow-count', component: VisitCount },
     { path: '/birds', component: BirdsPage },
     { path: '/visits', component: VisitsPage },
     { path: '/feeders', component: FeedersPage },
