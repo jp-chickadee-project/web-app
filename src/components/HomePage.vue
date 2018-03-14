@@ -8,7 +8,7 @@ div(id="container")
   br
   span This website is under development.
   h1 Code for dinosaurs
-  h4 Meetings are Tuesday at noon in the CS lab (JXJ 2214).
+  h4 Meetings are Tuesday at noon in the CS lab (JXJ 2311).
   a(href="https://sites.google.com/view/alecrlindsay/research/jp-chickadee-project") check out the biology website for more information <br>
 </template>
 
