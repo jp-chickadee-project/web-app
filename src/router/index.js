@@ -14,6 +14,7 @@ import BirdsPage from '@/components/birds/Page';
 import BirdPage from '@/components/bird/Page';
 
 import VisitCount from '@/components/visits/count/Index';
+import SlowVisitGraph from '@/components/visits/graph/Ray';
 
 Vue.use(Router);
 
@@ -22,6 +23,7 @@ export default new Router({
   routes: [
     { path: '/', component: HomePage },
     { path: '/slow-count', component: VisitCount },
+    { path: '/slow-graph', component: SlowVisitGraph },
     { path: '/birds', component: BirdsPage },
     { path: '/visits', component: VisitsPage },
     { path: '/feeders', component: FeedersPage },

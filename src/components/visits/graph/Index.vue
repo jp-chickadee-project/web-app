@@ -6,9 +6,11 @@ div
 <script>
 import Chart from 'chart.js';
 import moment from 'moment';
+import * as _ from 'lodash';
 
 export default {
-  components: {},
+  components: {
+  },
   name: 'VisitsGraph',
   props: {
     visits: {
@@ -22,19 +24,12 @@ export default {
       this.visits = v;
       const chart = new Chart(this.ctx, {
         type: 'bar',
-        options: {
-          title: {
-            display: true,
-            position: 'top',
-            text: `All ${this.visits.length} visits for Ray (#R/ay)`,
-          },
-        },
         data: {
           labels: this.labels,
           datasets: this.makeDatesets(this.labels),
         },
       });
-    },
+    }
   },
   data() {
     console.log('data');
@@ -49,9 +44,9 @@ export default {
   methods: {
     makeLabels() {
       const LIMIT = moment('2100', 'hhmm');
-      const time = moment('0600', 'hhmm');
+      let time = moment('0600', 'hhmm');
       console.log(time);
-      const times = [];
+      let times = [];
       while (time < LIMIT) {
         times.push(time.format('h:mma'));
         time.add(1, 'm');
@@ -60,9 +55,9 @@ export default {
     },
 
     setupDatasets(labels) {
-      const occurrences = {};
+      let occurrences = {};
       for (let i = 0; i < labels.length; i++) {
-        const label = labels[i];
+        let label = labels[i];
         occurrences[label] = 0;
       }
       console.log('empty occurrences');
@@ -71,11 +66,11 @@ export default {
     },
 
     makeDatesets(labels) {
-      const datasets = this.setupDatasets(labels);
+      let datasets = this.setupDatasets(labels);
       for (let i = 0; i < this.visits.length; i++) {
-        const visit = this.visits[i];
-        const timestamp = visit.visitTimestamp;
-        const time = moment.unix(timestamp).format('h:mma');
+        let visit = this.visits[i];
+        let timestamp = visit.visitTimestamp;
+        let time = moment.unix(timestamp).format('h:mma');
         if (datasets[time] === undefined) {
           datasets[time] = 0;
         }
@@ -85,20 +80,20 @@ export default {
       console.log(datasets);
 
       return [{
-        label: 'visits',
+        label: 'every recorded visit for #R/ay',
         data: Object.values(datasets),
-        backgroundColor: 'rgb(66, 134, 244)',
+        backgroundColor: 'rgba(30, 144, 255, 1)'
       }];
     },
 
     zero(count) {
       const DEFAULT_VALUE = 0;
-      const list = [];
+      let list = [];
       for (let i = 0; i < count; i++) {
         list.push(DEFAULT_VALUE);
       }
       return list;
-    },
+    }
   },
 };
 </script>
