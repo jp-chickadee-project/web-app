@@ -17,7 +17,7 @@ You'll need [Git](https://git-scm.com/) and a recent version of [Node.JS](https:
 The frontend is ran with [tmux](https://en.wikipedia.org/wiki/Tmux). This allows for the site to remain up without an ssh terminal open. 
 1. Login to Euclid with the special bird account. (Ask someone for the credentials.)
 2. End the current tmux session if needed with `tmux kill-session -t 0`
-3. start another session `tmux`
+3. start another session `tmux new -s front-end`
 4. npm run start
 5. Close the terminal with the "x" close in the corner.
 6. Confirm
