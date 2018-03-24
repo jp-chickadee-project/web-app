@@ -1,5 +1,6 @@
 <template lang="pug">
 div(id="container")
+  VisitsTicker
   FeedersMap
   br
   br
@@ -16,12 +17,14 @@ div(id="container")
 import Api from '@/api';
 import VisitsGraph from '@/components/visits/graph/Index';
 import FeedersMap from '@/components/feeders/map/Index';
+import VisitsTicker from '@/components/visits/ticker/Index';
 
 export default {
   name: 'HelloWorld',
   components: {
     VisitsGraph,
     FeedersMap,
+    VisitsTicker,
   },
   data() {
     return {};
