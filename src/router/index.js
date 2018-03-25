@@ -6,7 +6,7 @@ import VisitsPage from '@/components/pages/VisitsPage';
 import FeedersPage from '@/components/pages/FeedersPage';
 import FeederProfilePage from '@/components/pages/FeederProfilePage';
 
-import ErrorPageNotFound from '@/components/errors/PageNotFound';
+import ErrorNotFoundPage from '@/components/pages/ErrorNotFoundPage';
 
 import BirdsPage from '@/components/birds/Page';
 import BirdPage from '@/components/bird/Page';
@@ -33,6 +33,6 @@ export default new Router({
       component: FeederProfilePage,
       props: route => ({ id: route.params.id }),
     },
-    { path: '*', component: ErrorPageNotFound },
+    { path: '*', component: ErrorNotFoundPage },
   ],
 });
