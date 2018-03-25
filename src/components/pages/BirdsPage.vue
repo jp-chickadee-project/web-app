@@ -5,7 +5,7 @@ div
 
 <script>
 import Api from '@/api';
-import BirdsList from './list/Index';
+import BirdsList from '@/components/organisms/BirdList';
 
 export default {
   name: 'BirdsPage',

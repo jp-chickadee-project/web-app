@@ -9,7 +9,7 @@ div(v-else)
 </template>
 
 <script>
-import BirdItem from './Item';
+import BirdItem from './BirdItem';
 
 export default {
   name: 'BirdList',

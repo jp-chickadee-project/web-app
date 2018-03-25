@@ -3,12 +3,11 @@ import Router from 'vue-router';
 
 import HomePage from '@/components/pages/HomePage';
 import VisitsPage from '@/components/pages/VisitsPage';
+import BirdsPage from '@/components/pages/BirdsPage';
 import FeedersPage from '@/components/pages/FeedersPage';
 import FeederProfilePage from '@/components/pages/FeederProfilePage';
-
 import ErrorNotFoundPage from '@/components/pages/ErrorNotFoundPage';
 
-import BirdsPage from '@/components/birds/Page';
 import BirdPage from '@/components/bird/Page';
 
 import SlowVisitGraph from '@/components/visits/graph/Ray';
