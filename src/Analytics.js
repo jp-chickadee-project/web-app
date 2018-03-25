@@ -1,6 +1,14 @@
 
 import axios from 'axios';
 
+import io from 'socket.io-client';
+
+const socket = io('http://euclid.nmu.edu:3000');
+
+socket.on('connect', () => {
+
+});
+
 const api = axios.create({
   baseURL: 'http://euclid.nmu.edu:3000',
 });
