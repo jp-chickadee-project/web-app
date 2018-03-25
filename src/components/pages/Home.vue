@@ -17,7 +17,7 @@ div(id="container")
 import Api from '@/api';
 import VisitsGraph from '@/components/visits/graph/Index';
 import FeedersMap from '@/components/feeders/map/Index';
-import VisitsTicker from '@/components/visits/ticker/Index';
+import VisitsTicker from '@/components/organisms/VisitsTicker';
 
 export default {
   name: 'HelloWorld',
