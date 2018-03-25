@@ -7,7 +7,7 @@ div
 <script>
 import Api from '@/api';
 import VisitList from '@/components/organisms/VisitList';
-import FeederBiography from './FeederBiography';
+import FeederBiography from '@/components/organisms/FeederBiography';
 
 export default {
   props: ['id'],

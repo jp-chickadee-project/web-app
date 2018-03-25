@@ -4,8 +4,7 @@ import Router from 'vue-router';
 import HomePage from '@/components/pages/HomePage';
 import VisitsPage from '@/components/pages/VisitsPage';
 import FeedersPage from '@/components/pages/FeedersPage';
-
-import FeederProfilePage from '@/components/feeders/profile/Index';
+import FeederProfilePage from '@/components/pages/FeederProfilePage';
 
 import ErrorPageNotFound from '@/components/errors/PageNotFound';
 
