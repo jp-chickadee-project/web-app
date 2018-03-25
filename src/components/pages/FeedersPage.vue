@@ -5,7 +5,7 @@ div
 
 <script>
 import Api from '@/api';
-import FeederList from './FeederList';
+import FeederList from '@/components/organisms/FeederList.vue';
 
 export default {
   components: {

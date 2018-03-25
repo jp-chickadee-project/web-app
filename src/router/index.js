@@ -3,8 +3,7 @@ import Router from 'vue-router';
 
 import HomePage from '@/components/pages/HomePage';
 import VisitsPage from '@/components/pages/VisitsPage';
-
-import FeedersPage from '@/components/feeders/list/Index';
+import FeedersPage from '@/components/pages/FeedersPage';
 
 import FeederProfilePage from '@/components/feeders/profile/Index';
 
