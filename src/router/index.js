@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import HomePage from '@/components/pages/Home';
+import HomePage from '@/components/pages/HomePage';
+import VisitsPage from '@/components/pages/VisitsPage';
 
-import VisitsPage from '@/components/visits/list/Index';
 import FeedersPage from '@/components/feeders/list/Index';
 
 import FeederProfilePage from '@/components/feeders/profile/Index';

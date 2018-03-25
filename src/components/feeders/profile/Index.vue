@@ -6,7 +6,7 @@ div
 
 <script>
 import Api from '@/api';
-import VisitList from '@/components/visits/list/VisitList';
+import VisitList from '@/components/organisms/VisitList';
 import FeederBiography from './FeederBiography';
 
 export default {

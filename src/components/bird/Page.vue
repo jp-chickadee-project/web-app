@@ -8,7 +8,7 @@ div
 import Api from '@/api';
 import DefaultBird from '@/defaults/Bird';
 
-import VisitList from '@/components/visits/list/VisitList';
+import VisitList from '@/components/organisms/VisitList';
 import BirdProfile from './Profile';
 
 export default {
