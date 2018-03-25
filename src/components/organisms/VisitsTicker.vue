@@ -15,13 +15,10 @@ export default {
     };
   },
   created() {
-    Analytics.totalVisits()
-      .then((total) => {
-        this.count = total;
-      })
-      .catch(() => {
-        // TODO 
-      });
+    Analytics.on('total', (total) => {
+      console.log(`total is ${total}`);
+      this.count = total;
+    });
   }
 };
 </script>
