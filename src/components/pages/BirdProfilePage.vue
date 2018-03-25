@@ -9,7 +9,7 @@ import Api from '@/api';
 import DefaultBird from '@/defaults/Bird';
 
 import VisitList from '@/components/organisms/VisitList';
-import BirdProfile from './Profile';
+import BirdProfile from '@/components/organisms/BirdProfile';
 
 export default {
   props: ['rfid'],

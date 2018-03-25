@@ -5,12 +5,9 @@ import HomePage from '@/components/pages/HomePage';
 import VisitsPage from '@/components/pages/VisitsPage';
 import BirdsPage from '@/components/pages/BirdsPage';
 import FeedersPage from '@/components/pages/FeedersPage';
+import BirdProfilePage from '@/components/pages/BirdProfilePage';
 import FeederProfilePage from '@/components/pages/FeederProfilePage';
 import ErrorNotFoundPage from '@/components/pages/ErrorNotFoundPage';
-
-import BirdPage from '@/components/bird/Page';
-
-import SlowVisitGraph from '@/components/visits/graph/Ray';
 
 Vue.use(Router);
 
@@ -18,13 +15,12 @@ export default new Router({
   mode: 'history',
   routes: [
     { path: '/', component: HomePage },
-    { path: '/slow-graph', component: SlowVisitGraph },
     { path: '/birds', component: BirdsPage },
     { path: '/visits', component: VisitsPage },
     { path: '/feeders', component: FeedersPage },
     {
       path: '/birds/:rfid',
-      component: BirdPage,
+      component: BirdProfilePage,
       props: route => ({ rfid: route.params.rfid }),
     },
     {

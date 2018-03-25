@@ -4,12 +4,9 @@ div(id="idmap")
 
 <script>
 import Api from '@/api';
-import VisitProfile from '@/components/visits/profile/Index';
 
 export default {
-  components: {
-    VisitProfile,
-  },
+  components: {},
   name: 'FeedersMap',
 
   data() {
