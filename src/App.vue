@@ -16,7 +16,7 @@
           width="30"
           height="30"
           style="margin-right:5px"
-          alt="">JP Chickadee Project
+          alt="">JPCP
       </a>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
@@ -34,6 +34,9 @@
           </li>
         </ul>
       </div>
+      <input id="forward" type="button">
+      <input id="datetime" type="datetime-local">
+      <input id="backward" type="button">      
     </nav>
     <router-view></router-view>
   </div>
