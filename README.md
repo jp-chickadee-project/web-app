@@ -2,6 +2,8 @@
 
 You'll need [Git](https://git-scm.com/) and a recent version of [Node.JS](https://nodejs.org/en/) (`v8.0.0+` allows for `=>` (arrow functions), `async`, and `await`)
 
+this repo is a template of https://github.com/vuejs-templates/webpack
+
 1. Navigate to where you'd like to save the project
 2. `git clone` the repo
 3. Navigate to inside the project
