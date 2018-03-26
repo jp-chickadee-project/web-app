@@ -34,9 +34,9 @@
           </li>
         </ul>
       </div>
-      <input id="forward" type="button">
+      <input id="forward" value="<" type="button">
       <input id="datetime" type="datetime-local">
-      <input id="backward" type="button">      
+      <input id="backward" value=">" type="button">      
     </nav>
     <router-view></router-view>
   </div>
