@@ -15,10 +15,15 @@ export default {
     };
   },
   created() {
-    Analytics.on('total', (total) => {
+    Analytics.subscribe('TOTAL_VISITS', (total) => {
       console.log(`total is ${total}`);
       this.count = total;
     });
+  },
+  destoryed() {
+    // TODO
+    console.log('destory');
+    Analytics.unsubscribe('TOTAL_VISITS');
   }
 };
 </script>
