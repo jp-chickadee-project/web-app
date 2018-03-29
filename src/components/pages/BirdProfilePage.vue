@@ -1,7 +1,7 @@
 <template lang='pug'>
 div
-  BirdProfile(:bird='bird')
-  VisitList(:visits="visits" :isLoading="isLoadingVisits")
+  BirdProfile(:bird='bird' :rfid='rfid')
+  VisitList(:visits='visits' :isLoading='isLoadingVisits')
 </template>
 
 <script>
@@ -43,6 +43,8 @@ export default {
         this.bird = bird;
       })
       .catch(() => {});
+
+    
   },
 };
 </script>
