@@ -33,10 +33,7 @@
             <router-link class="nav-link" to="/feeders">Feeders</router-link>
           </li>
         </ul>
-      </div>
-      <input id="forward" value="<" type="button">
-      <input id="datetime" type="datetime-local">
-      <input id="backward" value=">" type="button">      
+      </div>     
     </nav>
     <router-view></router-view>
   </div>
