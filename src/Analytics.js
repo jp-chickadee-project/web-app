@@ -1,15 +1,30 @@
 
-import io from 'socket.io-client';
+import axios from 'axios';
 
-const socket = io('http://localhost:3000');
+const api = axios.create({
+  baseURL: 'http://euclid.nmu.edu:18156/api',
+});
 
-socket.subscribe = (name, listener) => {
-  socket.emit('subscribe', name);
-  socket.on(name, listener);
-};
+api.interceptors.request.use(
+  (config) => {
+    console.log(`url: ${config.url}`);
+    console.log(`params: ${JSON.stringify(config.params, null, 2)}`);
+    return config;
+  },
+  config => config,
+);
 
-socket.unsubscribe = (name) => {
-  socket.emit('unsubscribe', name);
-};
+api.interceptors.response.use(
+  (response) => {
+    const data = response.data;
+    console.log(data);
+    return data;
+  },
+  error => error,
+);
 
-export default socket;
+export default class Analytics {
+  static get(resource) {
+    return api.get(resource);
+  }
+}

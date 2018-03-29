@@ -15,15 +15,11 @@ export default {
     };
   },
   created() {
-    Analytics.subscribe('TOTAL_VISITS', (total) => {
-      console.log(`total is ${total}`);
-      this.count = total;
-    });
-  },
-  destoryed() {
-    // TODO
-    console.log('destory');
-    Analytics.unsubscribe('TOTAL_VISITS');
+    Analytics.get('/total')
+      .then((response) => {
+        console.log(`total is ${response}`);
+        this.count = response.visits;
+      });
   }
 };
 </script>
