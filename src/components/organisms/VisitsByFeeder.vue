@@ -6,7 +6,7 @@
           <h3 class="headline mb-0">Visits per feeder</h3>
         </div>
       </v-card-title>
-      canvas(id="my_chart")
+      canvas(ref='chart')
     </v-card>
   </v-flex>
 </template>
@@ -34,7 +34,7 @@ export default {
     Analytics.get(`/birds/${this.rfid}/feeders`)
       .then((response) => {
         this.relation = response;
-        let ctx = document.getElementById("my_chart").getContext("2d");
+        let ctx = this.$refs['chart'];
         const data = {
           datasets: [{
             data: Object.values(this.relation),
