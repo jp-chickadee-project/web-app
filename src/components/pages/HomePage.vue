@@ -1,9 +1,6 @@
 <template lang="pug">
 div(id="container")
   <v-container>
-    <v-layout row wrap>
-      RecentVisitsGraph(xs12)
-    </v-layout>
     FeedersMap
     span This website is under development.
     h1 Code for dinosaurs
@@ -15,13 +12,11 @@ div(id="container")
 <script>
 import Api from '@/api';
 import FeedersMap from '@/components/feeders/map/Index';
-import RecentVisitsGraph from '@/components/organisms/RecentVisitsGraph';
 
 export default {
   name: 'HelloWorld',
   components: {
     FeedersMap,
-    RecentVisitsGraph,
   },
   data() {
     return {};
