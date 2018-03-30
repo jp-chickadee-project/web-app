@@ -1,6 +1,14 @@
 <template lang='pug'>
-div(class="chart-container")
-  canvas(id='my_chart')
+  <v-flex xs12 sm4>
+    <v-card>
+      <v-card-title primary-title>
+        <div>
+          <h3 class="headline mb-0">Visits per feeder</h3>
+        </div>
+      </v-card-title>
+      canvas(id="my_chart")
+    </v-card>
+  </v-flex>
 </template>
 
 <script>
@@ -46,7 +54,8 @@ export default {
         const options = {
           responsive: true,
           legend: {
-            position: 'right',
+            position: 'bottom',
+            
           },
         };
         let myPieChart = new Chart(ctx,{
@@ -60,8 +69,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.chart-container {
-    width: 375px;
-}
-</style>
+<style scoped></style>
