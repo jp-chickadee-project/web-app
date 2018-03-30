@@ -1,15 +1,21 @@
 <template lang="pug">
-div
+<v-container>
+  <v-layout row wrap>
+    RecentVisitsGraph(xs12)
+  </v-layout>
   VisitList(:visits="visits" :isLoading="isLoading")
+</v-container>
 </template>
 
 <script>
 import Api from '@/api';
 import VisitList from '@/components/organisms/VisitList';
+import RecentVisitsGraph from '@/components/organisms/RecentVisitsGraph';
 
 export default {
   components: {
     VisitList,
+    RecentVisitsGraph,
   },
   name: 'VisitsPage',
 
