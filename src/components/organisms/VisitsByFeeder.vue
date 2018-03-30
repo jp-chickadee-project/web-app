@@ -1,6 +1,14 @@
 <template lang='pug'>
-div(class="chart-container")
-  canvas(id='my_chart')
+  <v-flex xs4>
+    <v-card>
+      <v-card-title primary-title>
+        <div>
+          <h3 class="headline mb-0">Visits per feeder</h3>
+        </div>
+      </v-card-title>
+      canvas(ref='chart')
+    </v-card>
+  </v-flex>
 </template>
 
 <script>
@@ -26,7 +34,7 @@ export default {
     Analytics.get(`/birds/${this.rfid}/feeders`)
       .then((response) => {
         this.relation = response;
-        let ctx = document.getElementById("my_chart").getContext("2d");
+        let ctx = this.$refs['chart'];
         const data = {
           datasets: [{
             data: Object.values(this.relation),
@@ -46,7 +54,8 @@ export default {
         const options = {
           responsive: true,
           legend: {
-            position: 'right',
+            position: 'bottom',
+            
           },
         };
         let myPieChart = new Chart(ctx,{
@@ -60,8 +69,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.chart-container {
-    width: 375px;
-}
-</style>
+<style scoped></style>
