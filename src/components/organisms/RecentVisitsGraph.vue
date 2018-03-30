@@ -30,10 +30,11 @@ export default {
         });
         console.log(data);
         let chart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             datasets: [{
                 data,
+                backgroundColor: '#46CDCF',
             }],
         },
         options: {
