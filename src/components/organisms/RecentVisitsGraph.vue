@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang='pug'>
 v-flex
   v-card
     canvas(ref='chart')
