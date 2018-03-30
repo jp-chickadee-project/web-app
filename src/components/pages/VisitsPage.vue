@@ -1,6 +1,6 @@
 <template lang="pug">
-<v-container>
-  <v-layout row wrap>
+<v-container grid-list-md text-xs-center>
+  <v-layout wrap>
     RecentVisitsGraph(xs12)
   </v-layout>
   VisitList(:visits="visits" :isLoading="isLoading")
