@@ -1,7 +1,7 @@
 <template lang="pug">
 <v-container>
   <v-layout row wrap>
-    RecentVisitsGraph
+    RecentVisitsGraph(xs12)
   </v-layout>
   VisitList(:visits="visits" :isLoading="isLoading")
 </v-container>
