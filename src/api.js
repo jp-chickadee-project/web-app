@@ -1,17 +1,19 @@
 
 import axios from 'axios';
 
+import config from './config';
+
 const api = axios.create({
-  baseURL: 'http://euclid.nmu.edu:8155/api',
+  baseURL: `http://euclid.nmu.edu:${config.api}/api`,
 });
 
 api.interceptors.request.use(
-  (config) => {
-    console.log(`url: ${config.url}`);
-    console.log(`params: ${JSON.stringify(config.params, null, 2)}`);
-    return config;
+  (data) => {
+    console.log(`url: ${data.url}`);
+    console.log(`params: ${JSON.stringify(data.params, null, 2)}`);
+    return data;
   },
-  config => config,
+  data => data,
 );
 
 api.interceptors.response.use(

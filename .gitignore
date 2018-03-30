@@ -10,6 +10,8 @@ selenium-debug.log
 
 package-lock.json
 
+/src/config.js
+
 # Editor directories and files
 .idea
 .vscode
