@@ -4,7 +4,13 @@ div
   div rfid: {{bird.rfid}}
   div species: {{bird.species}}
   div suspected sex: {{bird.suspectedSex}}
-  VisitsByFeeder(:rfid='rfid')
+  <v-container grid-list-md text-xs-center>
+    <v-layout row wrap>
+      VisitsByFeeder(:rfid='rfid')
+      VisitsByFeeder(:rfid='rfid')
+      VisitsByFeeder(:rfid='rfid')
+    </v-layout>
+  </v-container>
 </template>
 
 <script>

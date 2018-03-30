@@ -1,5 +1,5 @@
 <template lang='pug'>
-  <v-flex xs12 sm4>
+  <v-flex xs4>
     <v-card>
       <v-card-title primary-title>
         <div>
