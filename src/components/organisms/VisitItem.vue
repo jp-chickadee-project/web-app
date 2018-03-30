@@ -2,9 +2,9 @@
 div(class="card")
   div(class="card-block")
     div
-      a(:href="'/birds/' + visit.rfid") bird: {{visit.bandCombo}}
+      router-link(:to="'birds/' + visit.rfid") bird: {{visit.bandCombo}}
     div
-      a(:href="'/feeders/' + visit.feederID") feeder: {{visit.feederID}}
+      router-link(:to="'feeders/' + visit.feederID") feeder: {{visit.feederID}}
     div time: {{new Date(visit.visitTimestamp * 1000).toGMTString()}}
 </template>
 
