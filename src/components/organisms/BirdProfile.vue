@@ -6,15 +6,15 @@ div
   div suspected sex: {{bird.suspectedSex}}
   <v-container grid-list-md text-xs-center>
     <v-layout row wrap>
-      VisitsByFeeder(:rfid='rfid')
-      VisitsByFeeder(:rfid='rfid')
-      VisitsByFeeder(:rfid='rfid')
+      VisitsByFeeder(:rfid='rfid' class='xs4')
+      VisitsByFeeder(:rfid='rfid' class='xs4')
+      VisitsByFeeder(:rfid='rfid' class='xs4')
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VisitsByFeeder from '@/components/organisms/VisitsByFeeder';
+import VisitsByFeeder from '@/components/molecules/VisitsByFeeder';
 
 export default {
   name: 'BirdProfile',

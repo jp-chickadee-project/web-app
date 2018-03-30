@@ -1,21 +1,16 @@
 <template lang='pug'>
-  <v-flex xs4>
-    <v-card>
-      <v-card-title primary-title>
-        <div>
-          <h3 class="headline mb-0">Visits per feeder</h3>
-        </div>
-      </v-card-title>
-      canvas(ref='chart')
-    </v-card>
-  </v-flex>
+v-flex
+  v-card
+    v-card-title(class='primary-title')
+      div
+        h3(class='headline mb-0') Visits by feeder
+    canvas(ref='chart')
 </template>
 
 <script>
 import Chart from 'chart.js';
 
 import Analytics from '@/Analytics';
-import DefaultBird from '@/defaults/Bird';
 
 export default {
   name: 'VisitsByFeeder',
