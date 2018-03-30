@@ -1,22 +1,27 @@
 <template lang="pug">
 div(id="container")
-  FeedersMap
-  span This website is under development.
-  h1 Code for dinosaurs
-  h4 Meetings are Tuesday at noon in the CS lab (JXJ 2311).
-  a(href="https://sites.google.com/view/alecrlindsay/research/jp-chickadee-project") check out the biology website for more information <br>
+  <v-container>
+    <v-layout row wrap>
+      RecentVisitsGraph(xs12)
+    </v-layout>
+    FeedersMap
+    span This website is under development.
+    h1 Code for dinosaurs
+    h4 Meetings are Tuesday at noon in the CS lab (JXJ 2311).
+    a(href="https://sites.google.com/view/alecrlindsay/research/jp-chickadee-project") check out the biology website for more information <br>
+  </v-container>
 </template>
 
 <script>
 import Api from '@/api';
 import FeedersMap from '@/components/feeders/map/Index';
-import VisitsTicker from '@/components/organisms/VisitsTicker';
+import RecentVisitsGraph from '@/components/organisms/RecentVisitsGraph';
 
 export default {
   name: 'HelloWorld',
   components: {
     FeedersMap,
-    VisitsTicker,
+    RecentVisitsGraph,
   },
   data() {
     return {};
