@@ -10,6 +10,8 @@ import * as _ from 'lodash';
 import Analytics from '@/Analytics';
 import Api from '@/api';
 
+import { getColorForFeeder } from '@/defaults/colors';
+
 export default {
   components: {},
   name: 'MovementMap',
@@ -52,7 +54,10 @@ export default {
           .then((feeders) => {
             _.map(feeders, (feeder) => {
               if (_.includes(visitedFeeders, feeder.id)) {
-                L.marker([feeder.latitude, feeder.longitude]).addTo(map);
+                L.circleMarker([feeder.latitude, feeder.longitude],
+                {
+                  color: getColorForFeeder(feeder.id),
+                }).addTo(map);
               }
             });
             map.setView([46.554064, -87.428646], ZOOM);
