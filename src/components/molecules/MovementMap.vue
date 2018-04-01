@@ -46,18 +46,9 @@ export default {
 
     Api.get('/feeders')
       .then((feeders) => {
-        for (let i = 0; i < feeders.length; i++) {
-          const feeder = feeders[i];
-          if (feeder.id !== "TEST") {
-            Api.get(`/visits/latest?feederID=${feeder.id}&limit=1`)
-              .then((visit) => {
-                L.marker([feeder.latitude, feeder.longitude]).addTo(map)
-                  .bindPopup(`feeder: ${feeder.fullName}<br> last visit: ${visit.bandCombo}`)
-                  .openPopup();
-              })
-              .catch(() => {});
-          }
-        }
+        _.map(feeders, (feeder) => {
+          L.marker([feeder.latitude, feeder.longitude]).addTo(map);
+        });
         map.setView([46.554064, -87.428646], ZOOM);
       });
   },
