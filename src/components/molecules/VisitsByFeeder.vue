@@ -44,7 +44,6 @@ export default {
           responsive: true,
           legend: {
             position: 'bottom',
-            
           },
         };
         let myPieChart = new Chart(ctx,{

@@ -10,7 +10,7 @@
 <script>
 import Api from '@/api';
 import VisitList from '@/components/organisms/VisitList';
-import RecentVisitsGraph from '@/components/organisms/RecentVisitsGraph';
+import RecentVisitsGraph from '@/components/molecules/RecentVisitsGraph';
 
 export default {
   components: {
