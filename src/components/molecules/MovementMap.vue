@@ -1,7 +1,7 @@
 <template lang='pug'>
 v-flex
   v-card(height='100%')
-    div(id='idmap' style='height: 100%')
+    div(ref='map' style='height: 100%')      
 </template>
 
 <script>
@@ -30,7 +30,8 @@ export default {
       new L.LatLng(46.558923, -87.440042),
       new L.LatLng(46.547893, -87.418094)
     );
-    const map = L.map('idmap', {
+    const container = this.$refs['map'];
+    const map = L.map(container, {
       center: bounds.getCenter(),
       minZoom: ZOOM,
       maxZoom: ZOOM,
@@ -84,11 +85,11 @@ export default {
                   [start.latitude, start.longitude],
                   [destination.latitude, destination.longitude],
                 ];
-                let percent = frequency / max;
+                let percent = frequency / 300;
                 console.log(percent);
                 L.polyline(points, {
                   color: '#000000',
-                  opacity: percent,
+                  opacity: percent + 0.05,
                   weight: 15,
                 }).bindPopup(frequency + '').addTo(map);
               });
