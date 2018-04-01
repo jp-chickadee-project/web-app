@@ -1,7 +1,7 @@
 <template lang='pug'>
 v-flex
   v-card(height='100%')
-    div(id='idmap')
+    div(id='idmap' style='height: 100%')
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
     return {};
   },
   mounted() {
-    const ZOOM = 15.5;
+    const ZOOM = 15;
     const bounds = new L.LatLngBounds(
       new L.LatLng(46.558923, -87.440042),
       new L.LatLng(46.547893, -87.418094)
@@ -44,22 +44,22 @@ export default {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
-    Api.get('/feeders')
-      .then((feeders) => {
-        _.map(feeders, (feeder) => {
-          L.marker([feeder.latitude, feeder.longitude]).addTo(map);
-        });
-        map.setView([46.554064, -87.428646], ZOOM);
+    Analytics.get(`/birds/${this.rfid}/movements`)
+      .then((movements) => {
+        const visitedFeeders = Object.keys(movements);
+
+        Api.get('/feeders')
+          .then((feeders) => {
+            _.map(feeders, (feeder) => {
+              if (_.includes(visitedFeeders, feeder.id)) {
+                L.marker([feeder.latitude, feeder.longitude]).addTo(map);
+              }
+            });
+            map.setView([46.554064, -87.428646], ZOOM);
+          });
       });
   },
 };
 </script>
 
-<style scoped>
-#idmap {
-  height: 100%;
-}
-.container {
-  height: 100%;
-}
-</style>
+<style scoped></style>
