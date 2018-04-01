@@ -12,6 +12,8 @@ import Chart from 'chart.js';
 
 import Analytics from '@/Analytics';
 
+import { getColorsForFeeders } from '@/defaults/colors';
+
 export default {
   name: 'VisitsByFeeder',
   props: {
@@ -30,21 +32,13 @@ export default {
       .then((response) => {
         this.relation = response;
         let ctx = this.$refs['chart'];
+        const keys = Object.keys(this.relation);
         const data = {
           datasets: [{
             data: Object.values(this.relation),
-            backgroundColor: [
-              'rgba(255, 99, 132)',
-              'rgba(54, 162, 235)',
-              'rgba(255, 206, 86)',
-              'rgba(75, 192, 192)',
-              'rgba(153, 102, 255)',
-              'rgba(255, 159, 64)',
-              'rgba(70, 70, 64)',
-              'rgba(23, 159, 64)',
-            ],
+            backgroundColor: getColorsForFeeders(keys),
           }],
-          labels: Object.keys(this.relation),
+          labels: keys,
         };
         const options = {
           responsive: true,

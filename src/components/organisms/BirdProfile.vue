@@ -7,7 +7,7 @@ div
   <v-container grid-list-md text-xs-center>
     <v-layout row wrap>
       VisitsByFeeder(:rfid='rfid' class='xs4')
-      MovementMap(:rfid='rfid' class='xs4')
+      MovementMap(:rfid='rfid' class='xs8')
     </v-layout>
   </v-container>
 </template>
