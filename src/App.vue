@@ -10,14 +10,14 @@
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </router-link>
-      <a class="navbar-brand" href="/">
+      <router-link to="/" class="navbar-brand">
         <img src="./assets/logo1.png"
           class="d-inline-block align-top"
           width="30"
           height="30"
           style="margin-right:5px"
           alt="">JPCP
-      </a>
+      </router-link>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
