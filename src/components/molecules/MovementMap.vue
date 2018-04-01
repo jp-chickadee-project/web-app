@@ -84,11 +84,11 @@ export default {
                   [start.latitude, start.longitude],
                   [destination.latitude, destination.longitude],
                 ];
-                let percent = frequency / max;
+                let percent = frequency / 300;
                 console.log(percent);
                 L.polyline(points, {
                   color: '#000000',
-                  opacity: percent,
+                  opacity: percent + 0.05,
                   weight: 15,
                 }).bindPopup(frequency + '').addTo(map);
               });
