@@ -89,8 +89,8 @@ export default {
                 L.polyline(points, {
                   color: '#000000',
                   opacity: percent,
-                  weight: 8,
-                }).addTo(map);
+                  weight: 15,
+                }).bindPopup(frequency + '').addTo(map);
               });
             });
             map.setView([averageLat, averageLong], ZOOM);
