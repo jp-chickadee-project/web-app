@@ -49,6 +49,15 @@ export default {
     Analytics.get(`/birds/${this.rfid}/movements`)
       .then((movements) => {
         const visitedFeeders = Object.keys(movements);
+        
+        let max = 0;
+        _.each(movements, (value, key) => {
+          _.each(value, (v, k) => {
+            if (v > max) {
+              max = v;
+            }
+          });
+        });
 
         Api.get('/feeders')
           .then((feeders) => {
@@ -60,7 +69,31 @@ export default {
                 }).addTo(map);
               }
             });
-            map.setView([46.554064, -87.428646], ZOOM);
+            const averageLat = _.mean(_.map(feeders, (f) => {
+              return f.latitude;
+            }));
+            const averageLong = _.mean(_.map(feeders, (f) => {
+              return f.longitude;
+            }));
+            const feederMap = _.keyBy(feeders, 'id');
+            _.each(movements, (destinations, s) => {
+              const start = feederMap[s];
+              _.each(destinations, (frequency, d) => {
+                const destination = feederMap[d];
+                const points = [
+                  [start.latitude, start.longitude],
+                  [destination.latitude, destination.longitude],
+                ];
+                let percent = frequency / max;
+                console.log(percent);
+                L.polyline(points, {
+                  color: '#000000',
+                  opacity: percent,
+                  weight: 8,
+                }).addTo(map);
+              });
+            });
+            map.setView([averageLat, averageLong], ZOOM);
           });
       });
   },
