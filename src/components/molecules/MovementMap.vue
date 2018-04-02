@@ -1,6 +1,6 @@
 <template lang='pug'>
 v-flex
-  v-card(height='100%')
+  v-card(height='100%' style='min-height: 200px;')
     div(ref='map' style='height: 100%')      
 </template>
 

@@ -4,10 +4,10 @@ div
   div rfid: {{bird.rfid}}
   div species: {{bird.species}}
   div suspected sex: {{bird.suspectedSex}}
-  <v-container grid-list-md text-xs-center>
+  <v-container grid-list-md>
     <v-layout row wrap>
-      VisitsByFeeder(:rfid='rfid' class='xs4')
-      MovementMap(:rfid='rfid' class='xs4')
+      VisitsByFeeder(:rfid='rfid' class='xs12 | sm6 | md4')
+      MovementMap(:rfid='rfid' class='xs12 | sm6 | md4')
     </v-layout>
   </v-container>
 </template>
