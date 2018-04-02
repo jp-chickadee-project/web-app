@@ -91,7 +91,7 @@ export default {
                   color: '#000000',
                   opacity: percent + 0.05,
                   weight: 15,
-                }).bindPopup(frequency + '').addTo(map);
+                }).bindPopup(`Moved between ${start.id} and ${destination.id} ${frequency} times`).addTo(map);
               });
             });
             map.setView([averageLat, averageLong], ZOOM);
