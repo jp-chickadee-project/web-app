@@ -1,7 +1,9 @@
 <template lang="pug">
 v-flex
   v-card(height='100%')
-    div(id='idmap' style='height: 100%')   
+    <v-card-media class="black--text" height="100%" id='idmap'>
+    </v-card-media>
+    <span class="headline over">Visits over the past hour</span>
 </template>
 
 <script>
@@ -67,5 +69,13 @@ export default {
 <style scoped>
 #idmap {
   height: 400px;
+  z-index: 1;
+}
+
+.over {
+  z-index:100;
+  position:absolute;
+  top: 10px;
+  left: 10px;
 }
 </style>
