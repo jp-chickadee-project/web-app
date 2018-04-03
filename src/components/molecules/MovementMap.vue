@@ -1,7 +1,8 @@
 <template lang='pug'>
 v-flex
-  v-card(height='100%' style='min-height: 200px;')
-    div(ref='map' style='height: 100%')      
+  v-card(height='100%')
+    <div class="black--text map" ref='map'></div>
+    span(class="headline over") movement between feeders
 </template>
 
 <script>
@@ -101,4 +102,19 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.map {
+  min-width: 400px;
+  min-height: 200px;
+  height: 100%;
+  z-index: 1;
+}
+
+.over {
+  z-index:100;
+  position:absolute;
+  top: 10px;
+  left: 10px;
+}
+</style>
