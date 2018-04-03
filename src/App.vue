@@ -36,6 +36,9 @@
           </ul>
         </div>     
       </nav>
+      <v-alert color="orange" value="true">
+          This version of the website uses some test data. Head over to <a href="http://jpcp.nmu.edu/#/">www.jpcp.nmu.edu</a> for the current website
+      </v-alert>
       <router-view></router-view>
     </div>
   </v-app>
