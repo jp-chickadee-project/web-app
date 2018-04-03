@@ -4,6 +4,7 @@ div
   div rfid: {{bird.rfid}}
   div species: {{bird.species}}
   div suspected sex: {{bird.suspectedSex}}
+  div capture date: {{new Date(bird.captureTimestamp * 1000).toGMTString()}}
   <v-container grid-list-md>
     <v-layout row wrap>
       VisitsByFeeder(:rfid='rfid' class='xs12 | sm6 | md4')
