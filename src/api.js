@@ -1,6 +1,8 @@
 
 import axios from 'axios';
 
+import _ from 'lodash';
+
 import config from './config';
 
 const api = axios.create({
@@ -24,5 +26,10 @@ api.interceptors.response.use(
   },
   error => error,
 );
+
+api.getFeeders = function getFeeders() {
+  return api.get('/feeders')
+    .then(feederList => _.keyBy(feederList, 'id'));
+};
 
 export default api;
