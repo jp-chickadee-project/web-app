@@ -28,30 +28,30 @@ export default {
   data() {
     return {
       items: ['day', 'week', 'month', 'year', 'all'],
-      item: 'month',
+      item: 'year',
       feeders: {},
     };
   },
 
   watch: {
     item: {
-      handler(value, oldValue) {
-        this.refresh(value);
+      handler() {
+        this.refresh();
       }
     }
   },
 
   methods: {
-    refresh(timespan) {
+    refresh() {
       // TODO clear layer
-      Analytics.get(`/feeders/checkins?=${timespan}`)
+      Analytics.get(`/feeders/checkins?timespan=${this.item}`)
         .then((checkins) => {
           _.each(checkins, (value, feederId) => {
           const feeder = this.feeders[feederId];
           console.log(`value: ${value}`);
           L.circleMarker([feeder.latitude, feeder.longitude], {
             color: getColorForFeeder(feeder.id),
-            radius: value + 5,
+            radius: 5,
           }).bindPopup(`feeder: ${feeder.id} </br> visits: ${value}`).addTo(this.map);
         });
       });
