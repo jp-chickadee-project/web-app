@@ -2,13 +2,15 @@
 div(id="container")
   <v-container grid-list-md>
     <v-layout row wrap>
-      FeederCheckinsMap(class='xs12' style='height: 400px')
-      <v-container>
-            span This website is under development.
-      h1 Code for dinosaurs
-      h4 Meetings are Tuesday at noon in the CS lab (JXJ 2311).
-      a(href="https://sites.google.com/view/alecrlindsay/research/jp-chickadee-project") check out the biology website for more information <br>
-      </v-container>
+      FeederCheckinsMap(class='xs12' height='400px')
+      <v-flex xs12>
+        <v-card>
+          span This website is under development.
+          h1 Code for dinosaurs
+          h4 Meetings are Tuesday at noon in the CS lab (JXJ 2311).
+          a(href="https://sites.google.com/view/alecrlindsay/research/jp-chickadee-project") check out the biology website for more information <br>
+        </v-card>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>

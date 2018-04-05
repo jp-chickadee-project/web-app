@@ -1,9 +1,15 @@
-<template lang="pug">
-v-flex
-  v-card(height='100%')
-    <v-card-media class="black--text" height="100%" id='idmap'>
-    </v-card-media>
-    <span class="headline over">Visits over the past hour</span>
+<template>
+<v-flex>
+  <v-card>
+    <div ref='map' class='map'></div>
+    <v-card-actions>
+      <h3 class='headline mb-0'>Feeder visits for the last:</h3>
+      <v-flex xs3>
+        <v-select :items="items" v-model="item" label="Select" single-line></v-select>
+      </v-flex>
+    </v-card-actions>
+  </v-card>
+</v-flex>
 </template>
 
 <script>
@@ -19,10 +25,10 @@ export default {
   name: 'FeederCheckinsMap',
 
   data() {
-    return {};
-  },
-
-  created() {
+    return {
+      items: ['day', 'week', 'month', 'year', 'lifetime'],
+      item: 'week',
+    };
   },
   mounted() {
     const ZOOM = 15.5;
@@ -30,7 +36,8 @@ export default {
       new L.LatLng(46.558923, -87.440042),
       new L.LatLng(46.547893, -87.418094)
     );
-    const map = L.map('idmap', {
+    const container = this.$refs['map'];
+    const map = L.map(container, {
       center: bounds.getCenter(),
       minZoom: ZOOM,
       maxZoom: ZOOM,
@@ -67,15 +74,10 @@ export default {
 </script>
 
 <style scoped>
-#idmap {
-  height: 400px;
-  z-index: 1;
-}
 
-.over {
-  z-index:100;
-  position:absolute;
-  top: 10px;
-  left: 10px;
+.map {
+  height: 100%;
+  min-height: 350px;
+  z-index: 1;
 }
 </style>
