@@ -18,12 +18,18 @@ export default {
     VisitList,
   },
   name: 'BirdPage',
+
+  beforeUpdate() {
+
+  },
+
   data() {
     return {
       bird: DefaultBird,
       visits: [],
     };
   },
+
   created() {
     this.isLoadingVisits = true;
     Api.get('/visits/latest', {
