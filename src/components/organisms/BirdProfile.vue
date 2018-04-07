@@ -1,6 +1,6 @@
 <template lang='pug'>
 div
-  div {{bird.bandCombo}}
+  div name: {{bird.name}} ({{bird.bandCombo}})
   div rfid: {{bird.rfid}}
   div species: {{bird.species}}
   div suspected sex: {{bird.suspectedSex}}

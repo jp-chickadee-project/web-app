@@ -87,7 +87,6 @@ export default {
                   [destination.latitude, destination.longitude],
                 ];
                 let percent = frequency / 300;
-                console.log(percent);
                 L.polyline(points, {
                   color: '#000000',
                   opacity: percent + 0.05,

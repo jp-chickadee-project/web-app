@@ -44,7 +44,7 @@ export default {
       })
       .catch(() => {});
 
-    Api.get(`/birds/${this.rfid}`)
+    Api.getBird(this.rfid)
       .then((bird) => {
         this.bird = bird;
       })
