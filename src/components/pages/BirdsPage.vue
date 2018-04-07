@@ -19,7 +19,7 @@ export default {
   },
   created() {
     this.isLoadingBirds = true;
-    Api.get('/birds')
+    Api.getBirds()
       .then((birds) => {
         this.birds = birds;
         this.isLoadingBirds = false;
