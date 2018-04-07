@@ -9,7 +9,7 @@ div
     <v-layout row wrap>
       VisitsByFeeder(:rfid='rfid' class='xs12 | sm6 | md4')
       MovementMap(:rfid='rfid' class='xs12 | sm6 | md4')
-      AssociationsList(:rfid='rfid' class='md12')
+      AssociationsList(:rfid='rfid' class='xs12 | sm6 | md4')
     </v-layout>
   </v-container>
 </template>

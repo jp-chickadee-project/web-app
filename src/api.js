@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import _ from 'lodash';
 
-import { getDisplayName } from '@/defaults/names';
+import { getDisplayNameFromBandCombo } from '@/defaults/names';
 
 import config from './config';
 
@@ -37,7 +37,7 @@ api.getFeeders = function getFeeders() {
 api.getBirds = function getBirds() {
   return api.get('/birds')
     .then(birds => _.map(birds, (bird) => {
-      const name = getDisplayName(bird.bandCombo);
+      const name = getDisplayNameFromBandCombo(bird.bandCombo);
       return { ...bird, name };
     }));
 };
@@ -46,7 +46,7 @@ api.getBird = function getBird(rfid) {
   return api.get(`/birds/${rfid}`)
     .then((b) => {
       const bird = b;
-      bird.name = getDisplayName(bird.bandCombo);
+      bird.name = getDisplayNameFromBandCombo(bird.bandCombo);
       return bird;
     });
 };
