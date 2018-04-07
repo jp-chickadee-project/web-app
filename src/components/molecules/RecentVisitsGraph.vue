@@ -1,6 +1,6 @@
 <template lang='pug'>
 v-flex
-  v-card
+  v-card(height='100%')
     canvas(ref='chart')
 </template>
 

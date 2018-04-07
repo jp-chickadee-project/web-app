@@ -7,7 +7,7 @@ div(class='card')
         data-toggle='collapse'
         aria-expanded='true'
         :aria-controls='bird.rfid'
-        :data-target='"#" + bird.rfid') {{bird.bandCombo}}
+        :data-target='"#" + bird.rfid') {{bird.name}} ({{bird.bandCombo}})
       router-link(:to='"birds/" + bird.rfid') view profile
     div(
       class='collapse'

@@ -1,6 +1,6 @@
 <template lang='pug'>
 div
-  div {{bird.bandCombo}}
+  div name: {{bird.name}} ({{bird.bandCombo}})
   div rfid: {{bird.rfid}}
   div species: {{bird.species}}
   div suspected sex: {{bird.suspectedSex}}
@@ -9,6 +9,7 @@ div
     <v-layout row wrap>
       VisitsByFeeder(:rfid='rfid' class='xs12 | sm6 | md4')
       MovementMap(:rfid='rfid' class='xs12 | sm6 | md4')
+      AssociationsList(:rfid='rfid' class='xs12 | sm6 | md4')
     </v-layout>
   </v-container>
 </template>
@@ -16,12 +17,14 @@ div
 <script>
 import VisitsByFeeder from '@/components/molecules/VisitsByFeeder';
 import MovementMap from '@/components/molecules/MovementMap';
+import AssociationsList from '@/components/molecules/AssociationsList';
 
 export default {
   name: 'BirdProfile',
   components: {
     VisitsByFeeder,
     MovementMap,
+    AssociationsList,
   },
   props: {
     rfid: {
