@@ -1,6 +1,6 @@
 <template>
-  <v-flex class='fill'>
-    <v-card>
+  <v-flex>
+    <v-card height='100%'>
       <v-list>
         <v-list-tile>Associated birds</v-list-tile>
         <v-list-tile avatar v-for="item in friends" :key="item.name" @click="" :to="'/birds/' + item.id">
