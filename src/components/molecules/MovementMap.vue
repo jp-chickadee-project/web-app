@@ -105,8 +105,9 @@ export default {
 <style scoped>
 
 .map {
-  min-width: 400px;
+  min-width: 300px;
   min-height: 200px;
+  width: 100%;
   height: 100%;
   z-index: 1;
 }
