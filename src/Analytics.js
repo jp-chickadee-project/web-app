@@ -29,4 +29,8 @@ export default class Analytics {
   static get(resource) {
     return api.get(resource);
   }
+
+  static getVisitsByFeederForPopulation(duration) {
+    return Analytics.get(`/feeders/visits?duration=${duration}`);
+  }
 }

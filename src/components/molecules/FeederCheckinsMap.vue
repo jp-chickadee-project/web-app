@@ -55,7 +55,7 @@ export default {
   methods: {
     refresh() {
       this.layer.clearLayers();
-      Analytics.get(`/feeders/checkins?timespan=${this.duration}`)
+      Analytics.getVisitsByFeederForPopulation(this.duration)
         .then((checkins) => {
           const max = _.max(_.values(checkins));
           
