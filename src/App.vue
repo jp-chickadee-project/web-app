@@ -41,13 +41,13 @@
         <v-alert color="orange" value="true">
           This version of the website uses some test data. Head over to <a href="http://jpcp.nmu.edu/#/">www.jpcp.nmu.edu</a> for the current website
         </v-alert>
-        <v-container fluid>
+        <v-container grid-list-md>
           <v-layout row wrap>
             <v-flex xs5>
               <h4>{{total}} visits over the past {{duration}} ready for seaching.</h4>
             </v-flex>
             <v-flex xs2>
-              <v-select :items="items" v-model="duration" label="Select" single-line></v-select>
+              <v-select :items="items" v-model="duration" single-line style='padding: 0'></v-select>
             </v-flex>
           </v-layout>
           <router-view :key="$route.fullPath" :duration='duration'></router-view>
@@ -67,7 +67,7 @@ export default {
   data() {
     return {
       items: ['day', 'week', 'month', 'year', 'all'],
-      duration: 'month',
+      duration: 'all',
       total: 0,
     };
   },
