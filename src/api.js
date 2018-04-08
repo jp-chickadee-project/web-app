@@ -4,6 +4,7 @@ import axios from 'axios';
 import _ from 'lodash';
 
 import { getDisplayNameFromBandCombo } from '@/defaults/names';
+import { getSpeciesFromAbbreviation } from '@/defaults/species';
 
 import config from './config';
 
@@ -38,16 +39,17 @@ api.getBirds = function getBirds() {
   return api.get('/birds')
     .then(birds => _.map(birds, (bird) => {
       const name = getDisplayNameFromBandCombo(bird.bandCombo);
-      return { ...bird, name };
+      const speciesDisplay = getSpeciesFromAbbreviation(bird.species);
+      return { ...bird, name, speciesDisplay };
     }));
 };
 
 api.getBird = function getBird(rfid) {
   return api.get(`/birds/${rfid}`)
-    .then((b) => {
-      const bird = b;
-      bird.name = getDisplayNameFromBandCombo(bird.bandCombo);
-      return bird;
+    .then((bird) => {
+      const name = getDisplayNameFromBandCombo(bird.bandCombo);
+      const speciesDisplay = getSpeciesFromAbbreviation(bird.species);
+      return { ...bird, name, speciesDisplay };
     });
 };
 

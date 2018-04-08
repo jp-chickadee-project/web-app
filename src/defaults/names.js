@@ -11,7 +11,7 @@ export const comboToNames = {
 export function getDisplayNameFromBandCombo(bandCombo) {
   const name = comboToNames[bandCombo];
   if (name === undefined) {
-    return bandCombo;
+    return '';
   }
   return name;
 }
