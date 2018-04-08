@@ -61,7 +61,6 @@ export default {
           
           _.each(this.feeders, (feeder, feederId) => {
             const value = checkins[feederId] || 0;
-            console.log(`value: ${value}`);
             L.circleMarker([feeder.latitude, feeder.longitude], {
               color: this.getColor(value / max),
               radius: 5,

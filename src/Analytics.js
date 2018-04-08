@@ -35,6 +35,6 @@ export default class Analytics {
   }
 
   static getTotalVisitsForPopulation(duration) {
-    return Analytics.get(`/visits/total?=${duration}`);
+    return Analytics.get(`/visits/total?duration=${duration}`);
   }
 }
