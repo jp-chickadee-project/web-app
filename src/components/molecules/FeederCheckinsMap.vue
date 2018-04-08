@@ -64,6 +64,7 @@ export default {
   },
 
   methods: {
+    
     refresh() {
       Analytics.getVisitsByFeederForPopulation(this.duration)
         .then((checkins) => {

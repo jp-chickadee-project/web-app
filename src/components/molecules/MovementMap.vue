@@ -28,6 +28,14 @@ export default {
       required: true,
     },
   },
+  
+  watch: {
+    duration: {
+      handler() {
+        this.refresh();
+      },
+    },
+  },
 
   data() {
     return {};
@@ -37,6 +45,7 @@ export default {
     const container = this.$refs.map;
     this.map = buildStudyAreaMap(container)
       .setZoom(15);
+    this.layer = L.layerGroup().addTo(this.map);
     Api.getFeeders()
       .then((feeders) => {
         this.feeders = feeders;
@@ -49,11 +58,12 @@ export default {
     refresh() {
       Analytics.getMovementsForBird(this.rfid, this.duration)
         .then((movements) => {
+          this.layer.clearLayers();
           const visitedFeederIds = _.keys(movements);
           _.each(this.feeders, (feeder) => {
             if (_.includes(visitedFeederIds, feeder.id)) {
               const circle = this.makeCircle(feeder);
-              circle.addTo(this.map);
+              circle.addTo(this.layer);
             }
           });
 
@@ -62,9 +72,9 @@ export default {
             _.each(destinations, (count, destination) => {
               const destinationFeeder = this.feeders[destination];
               const line = this.makeLine(startFeeder, destinationFeeder, count);
-              line.addTo(this.map);
+              line.addTo(this.layer);
             });
-          });
+          });   
         });
     },
 
