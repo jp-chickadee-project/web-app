@@ -45,7 +45,7 @@
           <v-flex xs3>
             <v-select :items="items" v-model="item" label="Select" single-line></v-select>
           </v-flex>
-          <router-view :key="$route.fullPath"></router-view>
+          <router-view :key="$route.fullPath" :duration='item'></router-view>
         </v-container>
       </v-content>
     </div>

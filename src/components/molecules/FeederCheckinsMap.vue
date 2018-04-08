@@ -11,7 +11,7 @@
     </v-card-media>
     <v-card-title>
       <div>
-        <span>visits to feeders</span>
+        <h3 class="headline mb-0">visits to feeders</h3>
       </div>
     </v-card-title>
   </v-card>
@@ -31,15 +31,21 @@ export default {
   components: {},
   name: 'FeederCheckinsMap',
 
+  props: {
+    duration: {
+      type: String,
+      required: true,
+    },
+  },
+
   data() {
     return {
-      d: 'visits to feeders',
       feeders: {},
     };
   },
 
   watch: {
-    item: {
+    duration: {
       handler() {
         this.refresh();
       },
@@ -49,7 +55,7 @@ export default {
   methods: {
     refresh() {
       // TODO clear layer
-      Analytics.get(`/feeders/checkins?timespan=${this.item}`)
+      Analytics.get(`/feeders/checkins?timespan=${this.duration}`)
         .then((checkins) => {
           _.each(checkins, (value, feederId) => {
             const feeder = this.feeders[feederId];
