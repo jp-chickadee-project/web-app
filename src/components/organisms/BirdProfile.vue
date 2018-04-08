@@ -1,11 +1,19 @@
 <template lang='pug'>
 div
-  div name: {{bird.name}} ({{bird.bandCombo}})
-  div rfid: {{bird.rfid}}
-  div species: {{bird.species}}
-  div suspected sex: {{bird.suspectedSex}}
-  div capture date: {{new Date(bird.captureTimestamp * 1000).toGMTString()}}
   <v-container grid-list-md>
+    <v-layout>
+    <v-flex md2>
+      <v-avatar :size='168' :tile='true'>
+        <img src="./../../assets/bird.jpg">
+      </v-avatar>
+    </v-flex>
+    <v-flex>
+      h1 {{bird.name}} ({{bird.bandCombo}})
+      div {{bird.speciesDisplay}}
+      div suspected sex: {{bird.suspectedSex}}
+      div capture date: {{new Date(bird.captureTimestamp * 1000).toGMTString()}}
+    </v-flex>
+  </v-layout>
     <v-layout row wrap>
       VisitsByFeeder(:rfid='rfid' :duration='duration' class='xs12 | sm6 | md4')
       MovementMap(:rfid='rfid' :duration='duration' class='xs12 | sm6 | md4')
