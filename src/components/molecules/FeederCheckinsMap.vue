@@ -1,10 +1,19 @@
 <template>
 <v-flex>
   <v-card>
-    <div ref='map' class='map'></div>
-    <v-card-actions>
-      <h3 class='headline mb-0'>Feeder visits for the last:</h3>
-    </v-card-actions>
+    <v-card-media>
+      <v-container fill-height fluid ref='map' class='map'>
+        <v-layout fill-height>
+          <v-flex>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-card-media>
+    <v-card-title>
+      <div>
+        <span>visits to feeders</span>
+      </div>
+    </v-card-title>
   </v-card>
 </v-flex>
 </template>
@@ -24,8 +33,7 @@ export default {
 
   data() {
     return {
-      items: ['day', 'week', 'month', 'year', 'all'],
-      item: 'year',
+      d: 'visits to feeders',
       feeders: {},
     };
   },
@@ -75,7 +83,13 @@ export default {
 
 .map {
   height: 100%;
+  width: 100%;
   min-height: 350px;
   z-index: 1;
+}
+
+.title {
+  z-index: 999;
+  position:absolute;
 }
 </style>
