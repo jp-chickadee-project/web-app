@@ -54,9 +54,9 @@ export default {
 
   methods: {
     refresh() {
-      this.layer.clearLayers();
       Analytics.getVisitsByFeederForPopulation(this.duration)
         .then((checkins) => {
+          this.layer.clearLayers();
           const max = _.max(_.values(checkins));
           
           _.each(this.feeders, (feeder, feederId) => {
