@@ -54,24 +54,39 @@ export default {
 
   methods: {
     refresh() {
-      // TODO clear layer
+      this.layer.clearLayers();
       Analytics.get(`/feeders/checkins?timespan=${this.duration}`)
         .then((checkins) => {
+          const max = _.max(_.values(checkins));
+          console.log(max);
           _.each(checkins, (value, feederId) => {
             const feeder = this.feeders[feederId];
             console.log(`value: ${value}`);
             L.circleMarker([feeder.latitude, feeder.longitude], {
-              color: getColorForFeeder(feeder.id),
-              radius: 5,
-            }).bindPopup(`feeder: ${feeder.id} </br> visits: ${value}`).addTo(this.map);
+              color: this.getColor(value / max),
+              radius: 10,
+            }).bindPopup(`feeder: ${feeder.id} </br> visits: ${value}`).addTo(this.layer);
           });
         });
     },
+
+    getColor(d) {
+      //http://leafletjs.com/examples/choropleth/
+      return d > .90 ? '#800026' :
+              d > .80  ? '#BD0026' :
+              d > .70  ? '#E31A1C' :
+              d > .60  ? '#FC4E2A' :
+              d > .50   ? '#FD8D3C' :
+              d > .20   ? '#FEB24C' :
+              d > .10   ? '#FED976' :
+                          '#FFEDA0';
+    }
   },
 
   mounted() {
     const container = this.$refs.map;
     this.map = buildStudyAreaMap(container);
+    this.layer = L.layerGroup().addTo(this.map);
     Api.getFeeders()
       .then((feeders) => {
         this.feeders = feeders;

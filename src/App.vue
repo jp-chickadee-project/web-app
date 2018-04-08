@@ -58,7 +58,7 @@ export default {
 
     data() {
       return {
-        items: ['hour', 'day', 'week', 'month', 'year', 'all'],
+        items: ['day', 'week', 'month', 'year', 'all'],
         item: 'month',
       };
     }
