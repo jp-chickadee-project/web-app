@@ -9,8 +9,8 @@ export default function buildStudyAreaMap(element) {
   );
   const map = L.map(element, {
     center: bounds.getCenter(),
-    minZoom: ZOOM,
-    maxZoom: ZOOM,
+    minZoom: ZOOM - 2,
+    maxZoom: ZOOM + 2,
     maxBounds: bounds,
     maxBoundsViscosity: 0.75,
   });
