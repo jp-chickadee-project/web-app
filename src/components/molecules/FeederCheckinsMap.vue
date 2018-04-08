@@ -58,13 +58,14 @@ export default {
       Analytics.get(`/feeders/checkins?timespan=${this.duration}`)
         .then((checkins) => {
           const max = _.max(_.values(checkins));
-          console.log(max);
-          _.each(checkins, (value, feederId) => {
-            const feeder = this.feeders[feederId];
+          
+          _.each(this.feeders, (feeder, feederId) => {
+            const value = checkins[feederId] || 0;
             console.log(`value: ${value}`);
             L.circleMarker([feeder.latitude, feeder.longitude], {
               color: this.getColor(value / max),
-              radius: 10,
+              radius: 5,
+              weight: 10,
             }).bindPopup(`feeder: ${feeder.id} </br> visits: ${value}`).addTo(this.layer);
           });
         });
