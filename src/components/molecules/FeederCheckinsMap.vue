@@ -44,6 +44,17 @@ export default {
     };
   },
 
+  mounted() {
+    const container = this.$refs.map;
+    this.map = buildStudyAreaMap(container);
+    this.layer = L.layerGroup().addTo(this.map);
+    Api.getFeeders()
+      .then((feeders) => {
+        this.feeders = feeders;
+        this.refresh();
+      });
+  },
+
   watch: {
     duration: {
       handler() {
@@ -81,21 +92,6 @@ export default {
               d > .10   ? '#FED976' :
                           '#FFEDA0';
     }
-  },
-
-  mounted() {
-    const container = this.$refs.map;
-    this.map = buildStudyAreaMap(container);
-    this.layer = L.layerGroup().addTo(this.map);
-    Api.getFeeders()
-      .then((feeders) => {
-        this.feeders = feeders;
-        this.refresh();
-      });
-  },
-
-  refresh() {
-
   },
 };
 </script>

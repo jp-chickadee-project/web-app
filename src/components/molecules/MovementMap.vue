@@ -28,48 +28,64 @@ export default {
       required: true,
     },
   },
+
   data() {
     return {};
   },
+
   mounted() {
     const container = this.$refs.map;
-    const map = buildStudyAreaMap(container);
-    map.setZoom(15)
-    Analytics.getMovementsForBird(this.rfid, this.duration)
-      .then((movements) => {
-        const visitedFeeders = Object.keys(movements);
+    this.map = buildStudyAreaMap(container)
+      .setZoom(15);
+    Api.getFeeders()
+      .then((feeders) => {
+        this.feeders = feeders;
+        this.refresh();
+      });
+  },
 
-        Api.get('/feeders')
-          .then((feeders) => {
-            _.map(feeders, (feeder) => {
-              if (_.includes(visitedFeeders, feeder.id)) {
-                L.circleMarker([feeder.latitude, feeder.longitude],
-                  {
-                    color: getColorForFeeder(feeder.id),
-                  }).addTo(map);
-              }
-            });
-            const averageLat = _.mean(_.map(feeders, f => f.latitude));
-            const averageLong = _.mean(_.map(feeders, f => f.longitude));
-            const feederMap = _.keyBy(feeders, 'id');
-            _.each(movements, (destinations, s) => {
-              const start = feederMap[s];
-              _.each(destinations, (frequency, d) => {
-                const destination = feederMap[d];
-                const points = [
-                  [start.latitude, start.longitude],
-                  [destination.latitude, destination.longitude],
-                ];
-                const percent = frequency / 300;
-                L.polyline(points, {
-                  color: '#000000',
-                  opacity: percent + 0.05,
-                  weight: 15,
-                }).bindPopup(`Moved between ${start.id} and ${destination.id} ${frequency} times`).addTo(map);
-              });
+  methods: {
+
+    refresh() {
+      Analytics.getMovementsForBird(this.rfid, this.duration)
+        .then((movements) => {
+          const visitedFeederIds = _.keys(movements);
+          _.each(this.feeders, (feeder) => {
+            if (_.includes(visitedFeederIds, feeder.id)) {
+              const circle = this.makeCircle(feeder);
+              circle.addTo(this.map);
+            }
+          });
+
+          _.each(movements, (destinations, start) => {
+            const startFeeder = this.feeders[start];
+            _.each(destinations, (count, destination) => {
+              const destinationFeeder = this.feeders[destination];
+              const line = this.makeLine(startFeeder, destinationFeeder, count);
+              line.addTo(this.map);
             });
           });
+        });
+    },
+
+    makeLine(start, destination, count) {
+      const points = [
+        [start.latitude, start.longitude],
+        [destination.latitude, destination.longitude],
+      ];
+      const percent = count / 300;
+      return L.polyline(points, {
+        color: '#000000',
+        opacity: percent + 0.05,
+        weight: 15,
+      }).bindPopup(`Moved between ${start.id} and ${destination.id} ${count} times`);
+    },
+
+    makeCircle(feeder) {
+      return L.circleMarker([feeder.latitude, feeder.longitude], {
+        color: getColorForFeeder(feeder.id),
       });
+    }
   },
 };
 </script>
