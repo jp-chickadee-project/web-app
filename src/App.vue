@@ -34,19 +34,64 @@
               <router-link class="nav-link" to="/feeders">Feeders</router-link>
             </li>
           </ul>
-        </div>     
+        </div>
       </nav>
-      <v-alert color="orange" value="true">
+
+      <v-content>
+        <v-alert color="orange" value="true">
           This version of the website uses some test data. Head over to <a href="http://jpcp.nmu.edu/#/">www.jpcp.nmu.edu</a> for the current website
-      </v-alert>
-      <router-view :key="$route.fullPath"></router-view>
+        </v-alert>
+        <v-container fluid>
+          <v-layout row wrap>
+            <v-flex xs5>
+              <h4>{{total}} visits over the past {{duration}} ready for seaching.</h4>
+            </v-flex>
+            <v-flex xs2>
+              <v-select :items="items" v-model="duration" label="Select" single-line></v-select>
+            </v-flex>
+          </v-layout>
+          <router-view :key="$route.fullPath" :duration='duration'></router-view>
+        </v-container>
+      </v-content>
     </div>
   </v-app>
 </template>
 
 <script>
+
+import Analytics from '@/Analytics';
+
 export default {
   name: 'App',
+
+  data() {
+    return {
+      items: ['day', 'week', 'month', 'year', 'all'],
+      duration: 'month',
+      total: 0,
+    };
+  },
+
+  watch: {
+    duration: {
+      handler() {
+        this.refresh();
+      }
+    }
+  },
+
+  created() {
+    this.refresh(this.duration);
+  },
+
+  methods: {
+    refresh() {
+      Analytics.getTotalVisitsForPopulation(this.duration)
+        .then((total) => {
+          this.total = total;
+        });
+    },
+  },
 };
 </script>
 

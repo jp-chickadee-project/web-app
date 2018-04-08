@@ -29,4 +29,20 @@ export default class Analytics {
   static get(resource) {
     return api.get(resource);
   }
+
+  static getVisitsByFeederForPopulation(duration) {
+    return Analytics.get(`/feeders/visits?duration=${duration}`);
+  }
+
+  static getTotalVisitsForPopulation(duration) {
+    return Analytics.get(`/visits/total?duration=${duration}`);
+  }
+
+  static getVisitsByFeederForIndividual(id, duration) {
+    return Analytics.get(`/birds/${id}/feeders?duration=${duration}`);
+  }
+
+  static getMovementsForBird(id, duration) {
+    return Analytics.get(`/birds/${id}/movements?duration=${duration}`);
+  }
 }

@@ -7,9 +7,9 @@ div
   div capture date: {{new Date(bird.captureTimestamp * 1000).toGMTString()}}
   <v-container grid-list-md>
     <v-layout row wrap>
-      VisitsByFeeder(:rfid='rfid' class='xs12 | sm6 | md4')
-      MovementMap(:rfid='rfid' class='xs12 | sm6 | md4')
-      AssociationsList(:rfid='rfid' class='xs12 | sm6 | md4')
+      VisitsByFeeder(:rfid='rfid' :duration='duration' class='xs12 | sm6 | md4')
+      MovementMap(:rfid='rfid' :duration='duration' class='xs12 | sm6 | md4')
+      AssociationsList(:rfid='rfid' :duration='duration' class='xs12 | sm6 | md4')
     </v-layout>
   </v-container>
 </template>
@@ -33,6 +33,10 @@ export default {
     },
     bird: {
       type: Object,
+      required: true,
+    },
+    duration: {
+      type: String,
       required: true,
     },
   },

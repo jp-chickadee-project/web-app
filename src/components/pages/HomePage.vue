@@ -1,8 +1,8 @@
 <template lang="pug">
-div(id="container")
+div
   <v-container grid-list-md>
-    <v-layout row wrap>
-      FeederCheckinsMap(class='xs12' height='400px')
+    <v-layout row wrap fill-width>
+      FeederCheckinsMap(class='xs12' height='400px' :duration='duration')
       <v-flex xs12>
         <v-card>
           span This website is under development.
@@ -24,10 +24,17 @@ export default {
   components: {
     FeederCheckinsMap,
   },
+  props: {
+    duration: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {};
   },
   created() {
+    console.log(`duration is ${this.duration}`);
   },
 };
 </script>
@@ -47,14 +54,5 @@ li {
 }
 a {
   color: #42b983;
-}
-
-#container {
-  margin-top: 5px;
-  margin-left: 5px;
-}
-
-#x {
-  width: 50%;
 }
 </style>
