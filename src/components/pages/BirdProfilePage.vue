@@ -1,6 +1,6 @@
 <template lang='pug'>
 div
-  BirdProfile(:bird='bird' :rfid='rfid')
+  BirdProfile(:bird='bird' :rfid='rfid' :duration='duration')
   VisitList(:visits='visits' :isLoading='isLoadingVisits')
 </template>
 
@@ -12,15 +12,21 @@ import VisitList from '@/components/organisms/VisitList';
 import BirdProfile from '@/components/organisms/BirdProfile';
 
 export default {
-  props: ['rfid'],
   components: {
     BirdProfile,
     VisitList,
   },
   name: 'BirdPage',
 
-  beforeUpdate() {
-
+  props: {
+    duration: {
+      type: String,
+      required: true,
+    },
+    rfid: {
+      type: String,
+      required: true,
+    },
   },
 
   data() {

@@ -108,7 +108,7 @@ export default {
 }
 
 .over {
-  z-index:100;
+  z-index:2;
   position:absolute;
   top: 10px;
   left: 10px;
