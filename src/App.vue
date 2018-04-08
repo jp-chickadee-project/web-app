@@ -43,8 +43,8 @@
         </v-alert>
         <v-container fluid>
           <v-layout row wrap>
-            <v-flex xs3>
-              <v-subheader>Looking at {{total}} visits over the last:</v-subheader>
+            <v-flex xs5>
+              <h4>{{total}} visits over the past {{duration}} ready for seaching.</h4>
             </v-flex>
             <v-flex xs2>
               <v-select :items="items" v-model="duration" label="Select" single-line></v-select>
