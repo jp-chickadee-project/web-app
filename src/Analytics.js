@@ -41,4 +41,8 @@ export default class Analytics {
   static getVisitsByFeederForIndividual(id, duration) {
     return Analytics.get(`/birds/${id}/feeders?duration=${duration}`);
   }
+
+  static getMovementsForBird(id, duration) {
+    return Analytics.get(`/birds/${id}/movements?duration=${duration}`);
+  }
 }

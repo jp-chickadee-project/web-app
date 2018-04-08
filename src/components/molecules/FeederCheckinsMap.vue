@@ -44,6 +44,17 @@ export default {
     };
   },
 
+  mounted() {
+    const container = this.$refs.map;
+    this.map = buildStudyAreaMap(container);
+    this.layer = L.layerGroup().addTo(this.map);
+    Api.getFeeders()
+      .then((feeders) => {
+        this.feeders = feeders;
+        this.refresh();
+      });
+  },
+
   watch: {
     duration: {
       handler() {
@@ -53,10 +64,11 @@ export default {
   },
 
   methods: {
+    
     refresh() {
-      this.layer.clearLayers();
       Analytics.getVisitsByFeederForPopulation(this.duration)
         .then((checkins) => {
+          this.layer.clearLayers();
           const max = _.max(_.values(checkins));
           
           _.each(this.feeders, (feeder, feederId) => {
@@ -81,21 +93,6 @@ export default {
               d > .10   ? '#FED976' :
                           '#FFEDA0';
     }
-  },
-
-  mounted() {
-    const container = this.$refs.map;
-    this.map = buildStudyAreaMap(container);
-    this.layer = L.layerGroup().addTo(this.map);
-    Api.getFeeders()
-      .then((feeders) => {
-        this.feeders = feeders;
-        this.refresh();
-      });
-  },
-
-  refresh() {
-
   },
 };
 </script>
