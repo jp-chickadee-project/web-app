@@ -44,13 +44,13 @@
         <v-container fluid>
           <v-layout row wrap>
             <v-flex xs3>
-              <v-subheader>Looking at 4 visits over the last:</v-subheader>
+              <v-subheader>Looking at {{total}} visits over the last:</v-subheader>
             </v-flex>
             <v-flex xs2>
-              <v-select :items="items" v-model="item" label="Select" single-line></v-select>
+              <v-select :items="items" v-model="duration" label="Select" single-line></v-select>
             </v-flex>
           </v-layout>
-          <router-view :key="$route.fullPath" :duration='item'></router-view>
+          <router-view :key="$route.fullPath" :duration='duration'></router-view>
         </v-container>
       </v-content>
     </div>
@@ -58,15 +58,40 @@
 </template>
 
 <script>
+
+import Analytics from '@/Analytics';
+
 export default {
   name: 'App',
 
-    data() {
-      return {
-        items: ['day', 'week', 'month', 'year', 'all'],
-        item: 'month',
-      };
+  data() {
+    return {
+      items: ['day', 'week', 'month', 'year', 'all'],
+      duration: 'month',
+      total: 0,
+    };
+  },
+
+  watch: {
+    duration: {
+      handler() {
+        this.refresh();
+      }
     }
+  },
+
+  created() {
+    this.refresh(this.duration);
+  },
+
+  methods: {
+    refresh() {
+      Analytics.getTotalVisitsForPopulation(this.duration)
+        .then((total) => {
+          this.total = total;
+        });
+    },
+  },
 };
 </script>
 

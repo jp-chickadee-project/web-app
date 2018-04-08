@@ -33,4 +33,8 @@ export default class Analytics {
   static getVisitsByFeederForPopulation(duration) {
     return Analytics.get(`/feeders/visits?duration=${duration}`);
   }
+
+  static getTotalVisitsForPopulation(duration) {
+    return Analytics.get(`/visits/total?=${duration}`);
+  }
 }
