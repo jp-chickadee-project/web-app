@@ -2,7 +2,7 @@
 import L from 'leaflet';
 
 export default function buildStudyAreaMap(element) {
-  const ZOOM = 15.5;
+  const ZOOM = 15.4999999;
   const bounds = new L.LatLngBounds(
     new L.LatLng(46.558923, -87.440042),
     new L.LatLng(46.547893, -87.418094),
