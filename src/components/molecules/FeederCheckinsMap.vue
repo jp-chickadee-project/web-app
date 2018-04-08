@@ -4,9 +4,6 @@
     <div ref='map' class='map'></div>
     <v-card-actions>
       <h3 class='headline mb-0'>Feeder visits for the last:</h3>
-      <v-flex xs3>
-        <v-select :items="items" v-model="item" label="Select" single-line></v-select>
-      </v-flex>
     </v-card-actions>
   </v-card>
 </v-flex>
@@ -37,8 +34,8 @@ export default {
     item: {
       handler() {
         this.refresh();
-      }
-    }
+      },
+    },
   },
 
   methods: {
@@ -47,19 +44,19 @@ export default {
       Analytics.get(`/feeders/checkins?timespan=${this.item}`)
         .then((checkins) => {
           _.each(checkins, (value, feederId) => {
-          const feeder = this.feeders[feederId];
-          console.log(`value: ${value}`);
-          L.circleMarker([feeder.latitude, feeder.longitude], {
-            color: getColorForFeeder(feeder.id),
-            radius: 5,
-          }).bindPopup(`feeder: ${feeder.id} </br> visits: ${value}`).addTo(this.map);
+            const feeder = this.feeders[feederId];
+            console.log(`value: ${value}`);
+            L.circleMarker([feeder.latitude, feeder.longitude], {
+              color: getColorForFeeder(feeder.id),
+              radius: 5,
+            }).bindPopup(`feeder: ${feeder.id} </br> visits: ${value}`).addTo(this.map);
+          });
         });
-      });
-    }
+    },
   },
 
   mounted() {
-    const container = this.$refs['map'];
+    const container = this.$refs.map;
     this.map = buildStudyAreaMap(container);
     Api.getFeeders()
       .then((feeders) => {
@@ -70,7 +67,7 @@ export default {
 
   refresh() {
 
-  }
+  },
 };
 </script>
 

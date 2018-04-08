@@ -34,12 +34,20 @@
               <router-link class="nav-link" to="/feeders">Feeders</router-link>
             </li>
           </ul>
-        </div>     
+        </div>
       </nav>
-      <v-alert color="orange" value="true">
+
+      <v-content>
+        <v-alert color="orange" value="true">
           This version of the website uses some test data. Head over to <a href="http://jpcp.nmu.edu/#/">www.jpcp.nmu.edu</a> for the current website
-      </v-alert>
-      <router-view :key="$route.fullPath"></router-view>
+        </v-alert>
+        <v-container wrap>
+          <v-flex xs3>
+            <v-select :items="items" v-model="item" label="Select" single-line></v-select>
+          </v-flex>
+          <router-view :key="$route.fullPath"></router-view>
+        </v-container>
+      </v-content>
     </div>
   </v-app>
 </template>
@@ -47,6 +55,13 @@
 <script>
 export default {
   name: 'App',
+
+    data() {
+      return {
+        items: ['hour', 'day', 'week', 'month', 'year', 'all'],
+        item: 'month',
+      };
+    }
 };
 </script>
 

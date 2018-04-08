@@ -43,13 +43,11 @@ export default {
   mounted() {
     Analytics.get(`/birds/${this.rfid}/associations`)
       .then((assos) => {
-        const birds = _.map(assos, (n, bird) => {
-          return {
-            id: bird,
-            count: n,
-            name: getDisplayNameFromRfid(bird),
-          };
-        });
+        const birds = _.map(assos, (n, bird) => ({
+          id: bird,
+          count: n,
+          name: getDisplayNameFromRfid(bird),
+        }));
         this.friends = _.slice(_.reverse(_.sortBy(birds, ['count'])), 0, 3);
       });
   },

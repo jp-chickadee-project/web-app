@@ -49,8 +49,6 @@ export default {
         this.bird = bird;
       })
       .catch(() => {});
-
-    
   },
 };
 </script>

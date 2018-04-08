@@ -1,7 +1,7 @@
 <template lang="pug">
-div(id="container")
+div
   <v-container grid-list-md>
-    <v-layout row wrap>
+    <v-layout row wrap fill-width>
       FeederCheckinsMap(class='xs12' height='400px')
       <v-flex xs12>
         <v-card>
@@ -47,14 +47,5 @@ li {
 }
 a {
   color: #42b983;
-}
-
-#container {
-  margin-top: 5px;
-  margin-left: 5px;
-}
-
-#x {
-  width: 50%;
 }
 </style>

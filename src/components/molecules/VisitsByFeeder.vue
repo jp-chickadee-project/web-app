@@ -31,7 +31,7 @@ export default {
     Analytics.get(`/birds/${this.rfid}/feeders`)
       .then((response) => {
         this.relation = response;
-        let ctx = this.$refs['chart'];
+        const ctx = this.$refs.chart;
         const keys = Object.keys(this.relation);
         const data = {
           datasets: [{
@@ -46,14 +46,14 @@ export default {
             position: 'bottom',
           },
         };
-        let myPieChart = new Chart(ctx,{
-            type: 'pie',
-            data: data,
-            options: options
+        const myPieChart = new Chart(ctx, {
+          type: 'pie',
+          data,
+          options,
         });
       })
       .catch(() => {});
-  }
+  },
 };
 </script>
 

@@ -29,15 +29,15 @@ export default {
     const ZOOM = 15;
     const bounds = new L.LatLngBounds(
       new L.LatLng(46.558923, -87.440042),
-      new L.LatLng(46.547893, -87.418094)
+      new L.LatLng(46.547893, -87.418094),
     );
-    const container = this.$refs['map'];
+    const container = this.$refs.map;
     const map = L.map(container, {
       center: bounds.getCenter(),
       minZoom: ZOOM,
       maxZoom: ZOOM,
       maxBounds: bounds,
-			maxBoundsViscosity: 0.75,
+      maxBoundsViscosity: 0.75,
     });
     map.removeControl(map.zoomControl);
     map.dragging.disable();
@@ -51,7 +51,7 @@ export default {
     Analytics.get(`/birds/${this.rfid}/movements`)
       .then((movements) => {
         const visitedFeeders = Object.keys(movements);
-        
+
         let max = 0;
         _.each(movements, (value, key) => {
           _.each(value, (v, k) => {
@@ -66,17 +66,13 @@ export default {
             _.map(feeders, (feeder) => {
               if (_.includes(visitedFeeders, feeder.id)) {
                 L.circleMarker([feeder.latitude, feeder.longitude],
-                {
-                  color: getColorForFeeder(feeder.id),
-                }).addTo(map);
+                  {
+                    color: getColorForFeeder(feeder.id),
+                  }).addTo(map);
               }
             });
-            const averageLat = _.mean(_.map(feeders, (f) => {
-              return f.latitude;
-            }));
-            const averageLong = _.mean(_.map(feeders, (f) => {
-              return f.longitude;
-            }));
+            const averageLat = _.mean(_.map(feeders, f => f.latitude));
+            const averageLong = _.mean(_.map(feeders, f => f.longitude));
             const feederMap = _.keyBy(feeders, 'id');
             _.each(movements, (destinations, s) => {
               const start = feederMap[s];
@@ -86,7 +82,7 @@ export default {
                   [start.latitude, start.longitude],
                   [destination.latitude, destination.longitude],
                 ];
-                let percent = frequency / 300;
+                const percent = frequency / 300;
                 L.polyline(points, {
                   color: '#000000',
                   opacity: percent + 0.05,
