@@ -59,8 +59,12 @@ api.getBird = function getBird(rfid) {
 
 function formatBird(bird) {
   const name = getDisplayNameFromBandCombo(bird.bandCombo);
+  let bandCombo = bird.bandCombo;
+  if (name) {
+    bandCombo = `${name} (${bird.bandCombo})`;
+  }
   const speciesDisplay = getSpeciesFromAbbreviation(bird.species);
-  return { ...bird, name, speciesDisplay };
+  return { ...bird, bandCombo, speciesDisplay };
 }
 
 export default api;
