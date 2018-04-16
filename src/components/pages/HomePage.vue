@@ -3,7 +3,7 @@ div
   <v-container grid-list-md>
     <v-layout row wrap fill-width>
       FeederCheckinsMap(class='xs12' height='400px' :duration='duration')
-      <v-flex xs12>
+      <v-flex xs6>
         <v-card>
           span This website is under development.
           h1 Code for dinosaurs

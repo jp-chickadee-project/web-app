@@ -44,13 +44,27 @@ api.getBirds = function getBirds() {
     }));
 };
 
-api.getBird = function getBird(rfid) {
-  return api.get(`/birds/${rfid}`)
-    .then((bird) => {
-      const name = getDisplayNameFromBandCombo(bird.bandCombo);
-      const speciesDisplay = getSpeciesFromAbbreviation(bird.species);
-      return { ...bird, name, speciesDisplay };
+api.getBirdsAsDict = function getBirds() {
+  return api.get('/birds')
+    .then((birds) => {
+      const x = _.map(birds, bird => formatBird(bird));
+      return _.keyBy(x, 'rfid');
     });
 };
+
+api.getBird = function getBird(rfid) {
+  return api.get(`/birds/${rfid}`)
+    .then(bird => formatBird(bird));
+};
+
+function formatBird(bird) {
+  const name = getDisplayNameFromBandCombo(bird.bandCombo);
+  let bandCombo = bird.bandCombo;
+  if (name) {
+    bandCombo = `${name} (${bird.bandCombo})`;
+  }
+  const speciesDisplay = getSpeciesFromAbbreviation(bird.species);
+  return { ...bird, bandCombo, speciesDisplay };
+}
 
 export default api;
