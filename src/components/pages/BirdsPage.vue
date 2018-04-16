@@ -7,7 +7,7 @@ div
 
 import _ from 'lodash';
 
-import Bird from '@/models/bird';
+import Bird from '@/models/Bird';
 import BirdsList from '@/components/organisms/BirdList';
 
 export default {
