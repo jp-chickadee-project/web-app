@@ -3,7 +3,6 @@ div
   <v-container grid-list-md>
     <v-layout row wrap fill-width>
       FeederCheckinsMap(class='xs12' height='400px' :duration='duration')
-      Leaderboard(class='xs6')
       <v-flex xs6>
         <v-card>
           span This website is under development.
@@ -19,13 +18,11 @@ div
 <script>
 import Api from '@/api';
 import FeederCheckinsMap from '@/components/molecules/FeederCheckinsMap';
-import Leaderboard from '@/components/molecules/Leaderboard';
 
 export default {
   name: 'HelloWorld',
   components: {
     FeederCheckinsMap,
-    Leaderboard,
   },
   props: {
     duration: {
