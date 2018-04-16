@@ -24,7 +24,7 @@ import Analytics from '@/Analytics';
 
 import { getColorForFeeder } from '@/defaults/colors';
 import { getDisplayNameFromRfid } from '@/defaults/names';
-import Bird from '@/models/bird';
+import Bird from '@/models/Bird';
 
 export default {
   components: {},
