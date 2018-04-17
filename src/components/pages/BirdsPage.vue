@@ -4,7 +4,10 @@ div
 </template>
 
 <script>
-import Api from '@/api';
+
+import _ from 'lodash';
+
+import Bird from '@/models/Bird';
 import BirdsList from '@/components/organisms/BirdList';
 
 export default {
@@ -19,9 +22,9 @@ export default {
   },
   created() {
     this.isLoadingBirds = true;
-    Api.getBirds()
+    Bird.get()
       .then((birds) => {
-        this.birds = birds;
+        this.birds = _.values(birds);
         this.isLoadingBirds = false;
       })
       .catch(() => {});

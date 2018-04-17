@@ -8,7 +8,7 @@ div
       </v-avatar>
     </v-flex>
     <v-flex>
-      h1 {{bird.name}} ({{bird.bandCombo}})
+      h1 {{bird.bandCombo}}
       div {{bird.speciesDisplay}}
       div suspected sex: {{bird.suspectedSex}}
       div capture date: {{new Date(bird.captureTimestamp * 1000).toGMTString()}}
