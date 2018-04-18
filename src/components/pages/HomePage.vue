@@ -55,4 +55,13 @@ li {
 a {
   color: #42b983;
 }
+
+</style>
+
+<style>
+.legend {
+    line-height: 18px;
+    color: #555;
+    width: 100px !important;
+}
 </style>

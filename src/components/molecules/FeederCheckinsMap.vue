@@ -48,6 +48,26 @@ export default {
     const container = this.$refs.map;
     this.map = buildStudyAreaMap(container);
     this.layer = L.layerGroup().addTo(this.map);
+    var legend = L.control({position: 'bottomright'});
+
+  legend.onAdd = (map) => {
+
+      var div = L.DomUtil.create('div', 'legend'),
+          grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+          labels = [];
+
+      // loop through our density intervals and generate a label with a colored square for each interval
+      for (var i = 0; i < grades.length; i++) {
+        console.log(grades[i] / 1000);
+          div.innerHTML +=
+              '<div style="margin-right:8px; float:left; width:100%; height:20px; background:' + this.getColor(grades[i] / 1000) + '">' +
+              grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+' + '</div>');
+      }
+
+      return div;
+  };
+
+  legend.addTo(this.map);
     Api.getFeeders()
       .then((feeders) => {
         this.feeders = feeders;
@@ -109,5 +129,11 @@ export default {
 .title {
   z-index: 999;
   position:absolute;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+    width: 100px;
 }
 </style>
