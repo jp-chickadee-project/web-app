@@ -57,11 +57,3 @@ a {
 }
 
 </style>
-
-<style>
-.legend {
-    line-height: 18px;
-    color: #555;
-    width: 100px !important;
-}
-</style>
