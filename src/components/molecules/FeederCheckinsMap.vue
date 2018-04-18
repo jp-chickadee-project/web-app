@@ -79,16 +79,42 @@ export default {
               weight: 10,
             }).bindPopup(`feeder: ${feeder.id} </br> visits: ${value}`).addTo(this.layer);
           });
+          if (this.legend) {
+            this.map.removeControl(this.legend);
+          }
+          this.legend = this.makeLegend(max);
+          this.legend.addTo(this.map);
         });
+    },
+
+    makeLegend(max) {
+      const count = 8;
+      if (max === undefined || max < count) {
+        max = count;
+      }
+      var legend = L.control({ position: 'bottomright' });
+      legend.onAdd = (map) => {
+        let div = L.DomUtil.create('div', 'legend');
+        const step = Math.floor(max / count);
+        for (var i = 0; i < count; i++) {
+          let current = step * i;
+          let next = step * (i + 1); 
+          let range = Number(current).toLocaleString() + (next > max ? '+' : `-${Number(next).toLocaleString()}`);
+          let color = this.getColor(current / max);
+          div.innerHTML += `<div class='holder'><i style="background:${color}"></i><span>${range}</span></div>`;
+        }
+        return div;
+      };
+      return legend;
     },
 
     getColor(d) {
       //http://leafletjs.com/examples/choropleth/
-      return d > .90 ? '#800026' :
-              d > .80  ? '#BD0026' :
-              d > .70  ? '#E31A1C' :
-              d > .60  ? '#FC4E2A' :
-              d > .50   ? '#FD8D3C' :
+      return d > .70 ? '#800026' :
+              d > .60  ? '#BD0026' :
+              d > .50  ? '#E31A1C' :
+              d > .40  ? '#FC4E2A' :
+              d > .30   ? '#FD8D3C' :
               d > .20   ? '#FEB24C' :
               d > .10   ? '#FED976' :
                           '#FFEDA0';
