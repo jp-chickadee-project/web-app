@@ -15,7 +15,7 @@ backend - 18155
 analytics - 18156
 
 
-## FOR THE API
+## API
 ```
 tmux new -s api
 cd api/
@@ -23,14 +23,14 @@ python3 manage.py runserver euclid.nmu.edu 18155
 # exit the terminal
 ```
 
-## FOR THE FRONTEND (TEST)
+## FRONTEND (TEST)
 ```
 tmux new -s frontend-test
 cd frontend-test/
 npm run dev
 # exit the terminal
 ```
-## FOR THE FRONTEND (PRODUCTION)
+## FRONTEND (PRODUCTION)
 ```
 cd frontend
 npm run build
