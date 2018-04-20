@@ -2,7 +2,7 @@
 div
   <v-container grid-list-md>
     <v-layout row wrap fill-width>
-      FeederCheckinsMap(class='xs12' height='400px' :duration='duration')
+      <FeederCheckinsMap :duration='duration' class='xs12' height='400px'/>
       <v-flex xs6>
         <v-card>
           span This website is under development.
