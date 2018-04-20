@@ -6,6 +6,12 @@ export const comboToNames = {
   '#R/yn': 'Karena',
   '#N/ry': 'Lisa',
   'y0/#W': 'Alex',
+  'N#/g0': 'Pat',
+  'B#/v0': 'Britney',
+  'y0/#R': 'Christian',
+  '#O/v0': 'Helen',
+  '#O/gb': 'Austin',
+  '#G/g0': 'Peter',
 };
 
 export function getDisplayNameFromBandCombo(bandCombo) {
