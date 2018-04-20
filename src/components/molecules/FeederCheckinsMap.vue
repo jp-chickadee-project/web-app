@@ -137,3 +137,28 @@ export default {
   position:absolute;
 }
 </style>
+<style>
+.legend {
+  line-height: 18px;
+  width: auto;
+  color: #555;
+  background-color: azure;
+}
+
+.legend span {
+  font-size: 16px;
+  padding-right: 5px;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.legend holder {
+  width: 100%;
+}
+</style>
