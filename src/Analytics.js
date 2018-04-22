@@ -45,4 +45,8 @@ export default class Analytics {
   static getMovementsForBird(id, duration) {
     return Analytics.get(`/birds/${id}/movements?duration=${duration}`);
   }
+
+  static getLeaderboardForBirds(duration, limit) {
+    return Analytics.get(`/birds/leaderboard?duration=${duration}&limit=${limit}`);
+  }
 }

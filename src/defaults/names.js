@@ -1,19 +1,28 @@
 
 export const comboToNames = {
+  // funny names
+  'B#/v0': 'Bruce W.',
   '#R/ay': 'Ray',
+  // family
   '#A/rg': 'Karen',
-  '#N/rn': 'Tim',
   '#R/yn': 'Karena',
   '#N/ry': 'Lisa',
+  '#N/rn': 'Tim',
+  // friends
   'y0/#W': 'Alex',
   '#O/gb': 'Austin',
-  '#G/ar': 'Pat',
   '#O/rb': 'Britney',
   'y0/#R': 'Christian',
   'w0/G#': 'Helen',
-  '#O/rw': 'Peter',
-  'B#/v0': 'Bruce W.',
   '#O/av': 'Melissa',
+  '#G/ar': 'Pat',
+  '#O/rw': 'Peter',
+  // professors
+  '#G/aw': 'Andy',
+  'g0/#Y': 'Hadi',
+  '#A/yn': 'Jeff',
+  '#O/wg': 'John',
+  '#A/yg': 'Mike',
   'y0/R#': 'Randy',
 };
 

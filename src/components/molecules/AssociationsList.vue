@@ -1,19 +1,5 @@
 <template>
-  <v-flex>
-    <v-card height='100%'>
-      <v-list>
-        <v-list-tile>Associated birds</v-list-tile>
-        <v-list-tile avatar v-for="item in friends" :key="item.name" @click="" :to="'/birds/' + item.rfid">
-          <v-list-tile-avatar>
-            <img src="./../../assets/bird.jpg">
-          </v-list-tile-avatar>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.bandCombo"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-card>
-  </v-flex>
+<BirdAvatarList :title='title' :birds='friends'/>
 </template>
 
 <script>
@@ -26,8 +12,12 @@ import { getColorForFeeder } from '@/defaults/colors';
 import { getDisplayNameFromRfid } from '@/defaults/names';
 import Bird from '@/models/Bird';
 
+import BirdAvatarList from '@/components/atoms/BirdAvatarList';
+
 export default {
-  components: {},
+  components: {
+    BirdAvatarList,
+  },
   name: 'AssociationsList',
   props: {
     rfid: {
@@ -38,6 +28,7 @@ export default {
 
   data() {
     return {
+      title: 'Associated birds',
       friends: [],
     };
   },
