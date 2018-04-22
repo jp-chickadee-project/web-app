@@ -11,6 +11,7 @@
       <div>{{bird.speciesDisplay}}</div>
       <div>suspected sex: {{bird.suspectedSex}}</div>
       <div>capture date: {{new Date(bird.captureTimestamp * 1000).toGMTString()}}</div>
+      <div>last seen {{hoursAgo}} hours ago</div>
     </v-flex>
   </v-layout>
   <v-layout row wrap>
@@ -25,6 +26,8 @@
 import VisitsByFeeder from '@/components/molecules/VisitsByFeeder';
 import MovementMap from '@/components/molecules/MovementMap';
 import AssociationsList from '@/components/molecules/AssociationsList';
+
+import Api from '@/api';
 
 export default {
   name: 'BirdProfile',
@@ -47,6 +50,29 @@ export default {
       required: true,
     },
   },
+
+  data() {
+    return {
+      hoursAgo: 0,
+    };
+  },
+
+  mounted() {
+    this.getHoursSinceSeen();
+  },
+
+  methods: {
+    getHoursSinceSeen() {
+      Api.get(`/visits/latest?rfid=${this.rfid}&limit=1`)
+        .then((visit) => {
+          console.log('hi');
+          console.log(visit);
+          const now = Date.now();
+          const lastVisit = new Date(visit.visitTimestamp * 1000);
+          this.hoursAgo = Math.round((now - lastVisit) / 36e5);
+        });
+    }
+  }
 };
 </script>
 
