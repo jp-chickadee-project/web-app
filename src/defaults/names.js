@@ -15,6 +15,9 @@ export const comboToNames = {
   'B#/v0': 'Bruce W.',
   '#O/av': 'Melissa',
   'y0/R#': 'Randy',
+  'g0/#Y': 'Hadi',
+  '#A/yg': 'Mike',
+  '#O/wg': 'John',
 };
 
 export function getDisplayNameFromBandCombo(bandCombo) {
