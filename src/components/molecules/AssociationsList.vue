@@ -9,7 +9,6 @@ import Api from '@/api';
 import Analytics from '@/Analytics';
 
 import { getColorForFeeder } from '@/defaults/colors';
-import { getDisplayNameFromRfid } from '@/defaults/names';
 import Bird from '@/models/Bird';
 
 import BirdAvatarList from '@/components/atoms/BirdAvatarList';

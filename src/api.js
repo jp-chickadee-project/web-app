@@ -61,7 +61,7 @@ function formatBird(bird) {
   const name = getDisplayNameFromBandCombo(bird.bandCombo);
   let bandCombo = bird.bandCombo;
   if (name) {
-    bandCombo = `${name} (${bird.bandCombo})`;
+    bandCombo = `${bird.bandCombo} (${name})`;
   }
   const speciesDisplay = getSpeciesFromAbbreviation(bird.species);
   return { ...bird, bandCombo, speciesDisplay };
