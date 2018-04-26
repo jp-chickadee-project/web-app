@@ -3,6 +3,7 @@ export const comboToNames = {
   // funny names
   'B#/v0': 'Bruce W.',
   '#R/ay': 'Ray',
+  '#O/wg': 'Creamsicle',
   // family
   '#A/rg': 'Karen',
   '#R/yn': 'Karena',
@@ -21,7 +22,7 @@ export const comboToNames = {
   '#G/aw': 'Andy',
   'g0/#Y': 'Hadi',
   '#A/yn': 'Jeff',
-  '#O/wg': 'John',
+  '#Y/ap': 'John',
   '#A/yg': 'Mike',
   'y0/R#': 'Randy',
 };
