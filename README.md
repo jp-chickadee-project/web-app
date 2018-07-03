@@ -5,9 +5,11 @@ You'll need [Git](https://git-scm.com/) and a recent version of [Node.JS](https:
 this repo is a template of https://github.com/vuejs-templates/webpack
 
 1. Navigate to where you'd like to save the project
-2. `git clone` the repo
+2. run `git clone https://github.com/NMU-CS-BIO-Collab/chickadee-frontend.git`
 3. Navigate to inside the project
 4. Run `npm install` this downloads all the project's dependencies and devDependencies in package.json
+5. Copy and rename `config.example.js` to `config.js`
+6. Edit `config.js` with the correct testing port numbers. (Ask someone for them.)
 
 ### Running for Development on Your Local Machine
 1. Use command prompt.
