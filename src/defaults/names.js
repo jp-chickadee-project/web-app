@@ -4,6 +4,7 @@ export const comboToNames = {
   'B#/v0': 'Bruce W.',
   '#R/ay': 'Ray',
   '#O/wg': 'Creamsicle',
+  '#G/yb': 'Puggah',
   // family
   '#A/rg': 'Karen',
   '#R/yn': 'Karena',
